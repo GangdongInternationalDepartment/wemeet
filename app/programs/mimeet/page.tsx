@@ -9,6 +9,13 @@ const subjects = [
   { icon: "🎯", ko: "직업 맞춤 검사", en: "Career Aptitude Test", desc: { ko: "자신에게 맞는 직업을 탐색하는 검사 및 상담", en: "Assessment and counseling to explore suitable career paths." } },
 ];
 
+const photos = [
+  { src: "/images/programs/prog-10.jpg", caption: { ko: "WE MEET 프로그램 소개", en: "WE MEET Program Introduction" } },
+  { src: "/images/programs/prog-14.jpg", caption: { ko: "한국어 수업 현장", en: "Korean Language Class" } },
+  { src: "/images/programs/prog-11.jpg", caption: { ko: "WE MEET 발표", en: "WE MEET Presentation" } },
+  { src: "/images/programs/prog-15.jpg", caption: { ko: "마음 표현 — 한국어 수업", en: "Emotions in Korean — Class" } },
+];
+
 export default function MiMeetProgramPage() {
   const { t } = useLang();
 
@@ -21,7 +28,7 @@ export default function MiMeetProgramPage() {
       />
       <div className="max-w-4xl mx-auto px-4 py-14">
         {/* 운영 정보 */}
-        <div className="bg-white border border-gray-100 rounded-xl p-6 mb-8">
+        <div className="bg-white border border-gray-100 rounded-xl p-6 mb-10">
           <h3 className="font-bold text-[#1a6db1] text-lg mb-4">{t("프로그램 정보", "Program Info")}</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             {[
@@ -40,12 +47,29 @@ export default function MiMeetProgramPage() {
 
         {/* 수업 내용 */}
         <h3 className="text-xl font-bold text-gray-800 mb-6">{t("수업 내용", "Curriculum")}</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
           {subjects.map((sub, i) => (
             <div key={i} className="bg-white border border-gray-100 rounded-xl p-6 hover:border-[#1a6db1] transition-colors">
               <div className="text-3xl mb-3">{sub.icon}</div>
               <h4 className="font-bold text-gray-800 mb-2">{t(sub.ko, sub.en)}</h4>
               <p className="text-gray-500 text-sm">{t(sub.desc.ko, sub.desc.en)}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* 실제 활동 사진 */}
+        <h3 className="text-xl font-bold text-gray-800 mb-6">{t("활동 사진", "Activity Photos")}</h3>
+        <div className="grid grid-cols-2 gap-4 mb-12">
+          {photos.map((photo, i) => (
+            <div key={i} className="rounded-xl overflow-hidden group">
+              <div className="h-52 overflow-hidden">
+                <img
+                  src={photo.src}
+                  alt={t(photo.caption.ko, photo.caption.en)}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <p className="text-center text-sm text-gray-500 mt-2">{t(photo.caption.ko, photo.caption.en)}</p>
             </div>
           ))}
         </div>

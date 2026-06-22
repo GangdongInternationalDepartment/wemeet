@@ -11,6 +11,13 @@ const activities = [
   { icon: "🌏", ko: "세계 음식 체험", en: "World Food Experience", desc: { ko: "여러 나라의 음식을 함께 맛보고 문화를 나누는 시간", en: "Tasting foods from different countries and sharing cultures" } },
 ];
 
+const photos = [
+  { src: "/images/gallery/gallery-01.jpg", caption: { ko: "파전 만들기 — 쿠킹 클래스", en: "Making Pajeon — Cooking Class" } },
+  { src: "/images/gallery/gallery-03.jpg", caption: { ko: "공예 체험 워크샵", en: "Craft Workshop" } },
+  { src: "/images/gallery/gallery-13.png", caption: { ko: "랜드마크 투어 — 경복궁", en: "Landmark Tour — Gyeongbokgung" } },
+  { src: "/images/gallery/gallery-12.png", caption: { ko: "첫 수업 파티 🍕🍗", en: "First Class Party 🍕🍗" } },
+];
+
 export default function WeMeetProgramPage() {
   const { t } = useLang();
 
@@ -37,7 +44,7 @@ export default function WeMeetProgramPage() {
         </div>
 
         {/* 운영 정보 */}
-        <div className="bg-white border border-gray-100 rounded-xl p-6 mb-8 flex flex-col sm:flex-row gap-6 items-center">
+        <div className="bg-white border border-gray-100 rounded-xl p-6 mb-10 flex flex-col sm:flex-row gap-6 items-center">
           <div className="text-center">
             <p className="text-sm text-gray-500 mb-1">{t("운영일", "Day")}</p>
             <p className="text-2xl font-bold text-[#1a6db1]">{t("일요일", "Sunday")}</p>
@@ -56,12 +63,29 @@ export default function WeMeetProgramPage() {
 
         {/* 활동 목록 */}
         <h3 className="text-xl font-bold text-gray-800 mb-6">{t("주요 활동", "Key Activities")}</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
           {activities.map((act, i) => (
             <div key={i} className="bg-white border border-gray-100 rounded-xl p-5 hover:border-[#1a6db1] transition-colors">
               <div className="text-3xl mb-3">{act.icon}</div>
               <h4 className="font-bold text-gray-800 mb-1">{t(act.ko, act.en)}</h4>
               <p className="text-gray-500 text-sm">{t(act.desc.ko, act.desc.en)}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* 실제 활동 사진 */}
+        <h3 className="text-xl font-bold text-gray-800 mb-6">{t("활동 사진", "Activity Photos")}</h3>
+        <div className="grid grid-cols-2 gap-4 mb-12">
+          {photos.map((photo, i) => (
+            <div key={i} className="rounded-xl overflow-hidden group">
+              <div className="h-52 overflow-hidden">
+                <img
+                  src={photo.src}
+                  alt={t(photo.caption.ko, photo.caption.en)}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <p className="text-center text-sm text-gray-500 mt-2">{t(photo.caption.ko, photo.caption.en)}</p>
             </div>
           ))}
         </div>
