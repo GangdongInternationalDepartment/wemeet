@@ -3,17 +3,22 @@ import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { getNavigation } from "@/lib/data";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "WE MEET 다문화 행복센터",
   description: "한국에 정착하는 외국인 분들을 위한 종합 지원 기관 — WE MEET 다문화 행복센터",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const navItems = await getNavigation();
+
   return (
     <html lang="ko" className="h-full">
       <head>
@@ -24,7 +29,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
-          <Header />
+          <Header navItems={navItems} />
           <main className="flex-1">{children}</main>
           <Footer />
         </LanguageProvider>

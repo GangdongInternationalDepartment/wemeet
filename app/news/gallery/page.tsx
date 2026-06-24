@@ -1,111 +1,60 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
+import type { GalleryItem } from "@/lib/types";
 
-const galleryItems = [
+const tagColors: Record<string, string> = {
+  위밋프로그램: "bg-blue-100 text-blue-700",
+  "WE MEET": "bg-blue-100 text-blue-700",
+  미밋프로그램: "bg-indigo-100 text-indigo-700",
+  "MI MEET": "bg-indigo-100 text-indigo-700",
+  랜드마크투어: "bg-green-100 text-green-700",
+  Tour: "bg-green-100 text-green-700",
+  파티: "bg-yellow-100 text-yellow-700",
+  Party: "bg-yellow-100 text-yellow-700",
+};
+
+const fallbackItems: GalleryItem[] = [
   {
+    id: "g1",
     src: "/images/gallery/gallery-01.jpg",
     title: { ko: "한식 쿠킹 클래스 — 파전 만들기", en: "Korean Cooking Class — Pajeon" },
     date: "2025.10",
     tag: { ko: "위밋프로그램", en: "WE MEET" },
   },
-  {
-    src: "/images/gallery/gallery-09.jpg",
-    title: { ko: "한식 쿠킹 클래스 — 수업 현장", en: "Korean Cooking Class — In Session" },
-    date: "2025.10",
-    tag: { ko: "위밋프로그램", en: "WE MEET" },
-  },
-  {
-    src: "/images/gallery/gallery-03.jpg",
-    title: { ko: "공예 체험 워크샵", en: "Craft Workshop" },
-    date: "2025.10",
-    tag: { ko: "위밋프로그램", en: "WE MEET" },
-  },
-  {
-    src: "/images/gallery/gallery-02.jpg",
-    title: { ko: "문화 강연", en: "Cultural Lecture" },
-    date: "2025.10",
-    tag: { ko: "위밋프로그램", en: "WE MEET" },
-  },
-  {
-    src: "/images/gallery/gallery-13.png",
-    title: { ko: "랜드마크 투어 — 경복궁", en: "Landmark Tour — Gyeongbokgung" },
-    date: "2025.10",
-    tag: { ko: "랜드마크투어", en: "Tour" },
-  },
-  {
-    src: "/images/gallery/gallery-11.png",
-    title: { ko: "랜드마크 투어 — 단체사진", en: "Landmark Tour — Group Photo" },
-    date: "2025.10",
-    tag: { ko: "랜드마크투어", en: "Tour" },
-  },
-  {
-    src: "/images/gallery/gallery-12.png",
-    title: { ko: "첫 수업 파티 🍕🍗", en: "First Class Party 🍕🍗" },
-    date: "2025.10",
-    tag: { ko: "파티", en: "Party" },
-  },
-  {
-    src: "/images/programs/prog-10.jpg",
-    title: { ko: "WE MEET 프로그램 소개", en: "WE MEET Program Launch" },
-    date: "2025.10",
-    tag: { ko: "위밋프로그램", en: "WE MEET" },
-  },
-  {
-    src: "/images/programs/prog-14.jpg",
-    title: { ko: "MI MEET 한국어 수업", en: "MI MEET Korean Class" },
-    date: "2025.10",
-    tag: { ko: "미밋프로그램", en: "MI MEET" },
-  },
-  {
-    src: "/images/programs/prog-15.jpg",
-    title: { ko: "MI MEET 한국어 수업 현장", en: "MI MEET Korean Class — In Session" },
-    date: "2025.10",
-    tag: { ko: "미밋프로그램", en: "MI MEET" },
-  },
-  {
-    src: "/images/gallery/gallery-05.jpg",
-    title: { ko: "공예 체험 워크샵 — 전체 현장", en: "Craft Workshop — Full View" },
-    date: "2025.10",
-    tag: { ko: "위밋프로그램", en: "WE MEET" },
-  },
-  {
-    src: "/images/gallery/gallery-08.jpg",
-    title: { ko: "문화 강연 — 수강생들", en: "Cultural Lecture — Attendees" },
-    date: "2025.10",
-    tag: { ko: "위밋프로그램", en: "WE MEET" },
-  },
 ];
-
-const tagColors: Record<string, string> = {
-  "위밋프로그램": "bg-blue-100 text-blue-700",
-  "WE MEET": "bg-blue-100 text-blue-700",
-  "미밋프로그램": "bg-indigo-100 text-indigo-700",
-  "MI MEET": "bg-indigo-100 text-indigo-700",
-  "랜드마크투어": "bg-green-100 text-green-700",
-  "Tour": "bg-green-100 text-green-700",
-  "파티": "bg-yellow-100 text-yellow-700",
-  "Party": "bg-yellow-100 text-yellow-700",
-};
 
 export default function GalleryPage() {
   const { lang, t } = useLang();
   const [selected, setSelected] = useState<number | null>(null);
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>(fallbackItems);
+
+  useEffect(() => {
+    fetch("/api/data/gallery")
+      .then((r) => r.json())
+      .then((data: GalleryItem[]) => {
+        if (Array.isArray(data) && data.length > 0) setGalleryItems(data);
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <div>
       <PageHeader
         title={t("갤러리", "Gallery")}
-        subtitle={t("위밋 프로그램의 소중한 순간들을 담았습니다.", "Capturing precious moments from WE MEET programs.")}
+        subtitle={t(
+          "위밋 프로그램의 소중한 순간들을 담았습니다.",
+          "Capturing precious moments from WE MEET programs."
+        )}
         breadcrumb={[t("홈", "Home"), t("알림공간", "News"), t("갤러리", "Gallery")]}
       />
       <div className="max-w-6xl mx-auto px-4 py-14">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {galleryItems.map((item, i) => (
             <div
-              key={i}
+              key={item.id}
               className="rounded-xl overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow bg-gray-100"
               onClick={() => setSelected(i)}
             >
@@ -118,10 +67,17 @@ export default function GalleryPage() {
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all" />
               </div>
               <div className="p-3">
-                <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${tagColors[lang === "ko" ? item.tag.ko : item.tag.en] ?? "bg-gray-100 text-gray-600"}`}>
+                <span
+                  className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                    tagColors[lang === "ko" ? item.tag.ko : item.tag.en] ??
+                    "bg-gray-100 text-gray-600"
+                  }`}
+                >
                   {t(item.tag.ko, item.tag.en)}
                 </span>
-                <p className="font-medium text-gray-800 text-sm mt-1.5 leading-snug">{t(item.title.ko, item.title.en)}</p>
+                <p className="font-medium text-gray-800 text-sm mt-1.5 leading-snug">
+                  {t(item.title.ko, item.title.en)}
+                </p>
                 <p className="text-gray-400 text-xs mt-0.5">{item.date}</p>
               </div>
             </div>

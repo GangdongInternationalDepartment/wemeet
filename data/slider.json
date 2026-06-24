@@ -1,0 +1,32 @@
+[
+  {
+    "id": "s1",
+    "src": "/images/gallery/gallery-01.jpg",
+    "title": { "ko": "WE MEET 다문화 행복센터", "en": "WE MEET Multicultural Happiness Center" },
+    "sub": { "ko": "한국에 정착하는 외국인 분들과 함께합니다", "en": "Together with foreigners settling in Korea" }
+  },
+  {
+    "id": "s2",
+    "src": "/images/gallery/gallery-02.jpg",
+    "title": { "ko": "다양한 프로그램과 함께", "en": "Diverse Programs for Everyone" },
+    "sub": { "ko": "요리 클래스, 랜드마크 투어, 다자회, 세계 음식 체험", "en": "Cooking class, landmark tour, multicultural fair, world food" }
+  },
+  {
+    "id": "s3",
+    "src": "/images/gallery/gallery-03.jpg",
+    "title": { "ko": "함께하는 문화 교류", "en": "Cultural Exchange Together" },
+    "sub": { "ko": "다양한 문화가 하나로 어우러지는 공간", "en": "A space where diverse cultures come together as one" }
+  },
+  {
+    "id": "s4",
+    "src": "/images/gallery/gallery-08.jpg",
+    "title": { "ko": "MI MEET 프로그램", "en": "MI MEET Program" },
+    "sub": { "ko": "한국어 수업, 직업 맞춤 검사, 다양한 교육 지원", "en": "Korean class, career aptitude test, educational support" }
+  },
+  {
+    "id": "s5",
+    "src": "/images/gallery/gallery-05.jpg",
+    "title": { "ko": "온/오프라인 상담 서비스", "en": "Online & Offline Counseling" },
+    "sub": { "ko": "비자, 생활, 취업, 심리 상담까지 전문 서비스", "en": "Professional counseling on visa, life, employment & mental health" }
+  }
+]

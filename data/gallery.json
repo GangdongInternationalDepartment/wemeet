@@ -1,0 +1,86 @@
+[
+  {
+    "id": "g1",
+    "src": "/images/gallery/gallery-01.jpg",
+    "title": { "ko": "한식 쿠킹 클래스 — 파전 만들기", "en": "Korean Cooking Class — Pajeon" },
+    "date": "2025.10",
+    "tag": { "ko": "위밋프로그램", "en": "WE MEET" }
+  },
+  {
+    "id": "g2",
+    "src": "/images/gallery/gallery-09.jpg",
+    "title": { "ko": "한식 쿠킹 클래스 — 수업 현장", "en": "Korean Cooking Class — In Session" },
+    "date": "2025.10",
+    "tag": { "ko": "위밋프로그램", "en": "WE MEET" }
+  },
+  {
+    "id": "g3",
+    "src": "/images/gallery/gallery-03.jpg",
+    "title": { "ko": "공예 체험 워크샵", "en": "Craft Workshop" },
+    "date": "2025.10",
+    "tag": { "ko": "위밋프로그램", "en": "WE MEET" }
+  },
+  {
+    "id": "g4",
+    "src": "/images/gallery/gallery-02.jpg",
+    "title": { "ko": "문화 강연", "en": "Cultural Lecture" },
+    "date": "2025.10",
+    "tag": { "ko": "위밋프로그램", "en": "WE MEET" }
+  },
+  {
+    "id": "g5",
+    "src": "/images/gallery/gallery-13.png",
+    "title": { "ko": "랜드마크 투어 — 경복궁", "en": "Landmark Tour — Gyeongbokgung" },
+    "date": "2025.10",
+    "tag": { "ko": "랜드마크투어", "en": "Tour" }
+  },
+  {
+    "id": "g6",
+    "src": "/images/gallery/gallery-11.png",
+    "title": { "ko": "랜드마크 투어 — 단체사진", "en": "Landmark Tour — Group Photo" },
+    "date": "2025.10",
+    "tag": { "ko": "랜드마크투어", "en": "Tour" }
+  },
+  {
+    "id": "g7",
+    "src": "/images/gallery/gallery-12.png",
+    "title": { "ko": "첫 수업 파티", "en": "First Class Party" },
+    "date": "2025.10",
+    "tag": { "ko": "파티", "en": "Party" }
+  },
+  {
+    "id": "g8",
+    "src": "/images/programs/prog-10.jpg",
+    "title": { "ko": "WE MEET 프로그램 소개", "en": "WE MEET Program Launch" },
+    "date": "2025.10",
+    "tag": { "ko": "위밋프로그램", "en": "WE MEET" }
+  },
+  {
+    "id": "g9",
+    "src": "/images/programs/prog-14.jpg",
+    "title": { "ko": "MI MEET 한국어 수업", "en": "MI MEET Korean Class" },
+    "date": "2025.10",
+    "tag": { "ko": "미밋프로그램", "en": "MI MEET" }
+  },
+  {
+    "id": "g10",
+    "src": "/images/programs/prog-15.jpg",
+    "title": { "ko": "MI MEET 한국어 수업 현장", "en": "MI MEET Korean Class — In Session" },
+    "date": "2025.10",
+    "tag": { "ko": "미밋프로그램", "en": "MI MEET" }
+  },
+  {
+    "id": "g11",
+    "src": "/images/gallery/gallery-05.jpg",
+    "title": { "ko": "공예 체험 워크샵 — 전체 현장", "en": "Craft Workshop — Full View" },
+    "date": "2025.10",
+    "tag": { "ko": "위밋프로그램", "en": "WE MEET" }
+  },
+  {
+    "id": "g12",
+    "src": "/images/gallery/gallery-08.jpg",
+    "title": { "ko": "문화 강연 — 수강생들", "en": "Cultural Lecture — Attendees" },
+    "date": "2025.10",
+    "tag": { "ko": "위밋프로그램", "en": "WE MEET" }
+  }
+]
