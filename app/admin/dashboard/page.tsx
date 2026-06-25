@@ -8,6 +8,8 @@ interface Stats {
   navTotal: number;
   galleryItems: number;
   sliderSlides: number;
+  newsletterPosts: number;
+  faqItems: number;
 }
 
 export default function AdminDashboard() {
@@ -18,7 +20,9 @@ export default function AdminDashboard() {
       fetch("/api/admin/navigation").then((r) => r.json()),
       fetch("/api/admin/gallery").then((r) => r.json()),
       fetch("/api/admin/slider").then((r) => r.json()),
-    ]).then(([nav, gallery, slider]) => {
+      fetch("/api/admin/newsletter").then((r) => r.json()),
+      fetch("/api/admin/faq").then((r) => r.json()),
+    ]).then(([nav, gallery, slider, newsletter, faq]) => {
       const navTotal = nav.reduce(
         (acc: number, item: { children: unknown[] }) => acc + item.children.length,
         nav.length
@@ -28,6 +32,8 @@ export default function AdminDashboard() {
         navTotal,
         galleryItems: gallery.length,
         sliderSlides: slider.length,
+        newsletterPosts: newsletter.length,
+        faqItems: faq.length,
       });
     });
   }, []);
@@ -57,6 +63,22 @@ export default function AdminDashboard() {
       color: "bg-violet-500",
       icon: "▷",
     },
+    {
+      label: "알림톡톡 공지",
+      value: stats?.newsletterPosts,
+      sub: "뉴스레터 게시글",
+      href: "/admin/newsletter",
+      color: "bg-orange-500",
+      icon: "📢",
+    },
+    {
+      label: "FAQ 항목",
+      value: stats?.faqItems,
+      sub: "자주 묻는 질문",
+      href: "/admin/faq",
+      color: "bg-teal-500",
+      icon: "❓",
+    },
   ];
 
   return (
@@ -68,7 +90,7 @@ export default function AdminDashboard() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-5 gap-5 mb-10">
         {cards.map((card) => (
           <Link
             key={card.href}
@@ -92,11 +114,15 @@ export default function AdminDashboard() {
 
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
         <h2 className="font-semibold text-gray-700 mb-4">빠른 이동</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-3">
           {[
             { href: "/admin/menu", label: "메뉴 추가/수정/삭제" },
             { href: "/admin/gallery", label: "갤러리 사진 관리" },
             { href: "/admin/slider", label: "메인 슬라이더 관리" },
+            { href: "/admin/programs/wemeet", label: "WE MEET 프로그램 편집" },
+            { href: "/admin/programs/mimeet", label: "MI MEET 프로그램 편집" },
+            { href: "/admin/newsletter", label: "알림톡톡 공지 관리" },
+            { href: "/admin/faq", label: "FAQ 관리" },
           ].map(({ href, label }) => (
             <Link
               key={href}
