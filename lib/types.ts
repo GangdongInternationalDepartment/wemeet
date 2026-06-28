@@ -94,3 +94,44 @@ export interface FaqItem {
   q: BilingualText;
   a: BilingualText;
 }
+
+export interface SiteBranding {
+  topBarName: { ko: string; en: string };
+  logoAbbr: string;
+  siteName: { ko: string; en: string };
+  siteSubtitle: { ko: string; en: string };
+}
+
+export interface CallCenterHour {
+  id: string;
+  days: { ko: string; en: string };
+  time: string;
+  closed: boolean;
+}
+
+export interface CallCenterArea {
+  id: string;
+  ko: string;
+  en: string;
+}
+
+export interface CallCenterInfo {
+  email: string;
+  kakaoName: { ko: string; en: string };
+  kakaoUrl: string;
+  hours: CallCenterHour[];
+  areas: CallCenterArea[];
+}
+
+export interface ConsultationSubmission {
+  id: string;
+  name: string;
+  nationality: string;
+  dob: string;
+  phone: string;
+  email: string;
+  visitDate: string;
+  inquiry: string;
+  submittedAt: string;
+  status: "pending" | "reviewed";
+}

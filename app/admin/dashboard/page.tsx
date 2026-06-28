@@ -10,6 +10,8 @@ interface Stats {
   sliderSlides: number;
   newsletterPosts: number;
   faqItems: number;
+  submissionsTotal: number;
+  submissionsPending: number;
 }
 
 export default function AdminDashboard() {
@@ -22,7 +24,8 @@ export default function AdminDashboard() {
       fetch("/api/admin/slider").then((r) => r.json()),
       fetch("/api/admin/newsletter").then((r) => r.json()),
       fetch("/api/admin/faq").then((r) => r.json()),
-    ]).then(([nav, gallery, slider, newsletter, faq]) => {
+      fetch("/api/admin/submissions").then((r) => r.json()),
+    ]).then(([nav, gallery, slider, newsletter, faq, submissions]) => {
       const navTotal = nav.reduce(
         (acc: number, item: { children: unknown[] }) => acc + item.children.length,
         nav.length
@@ -34,6 +37,8 @@ export default function AdminDashboard() {
         sliderSlides: slider.length,
         newsletterPosts: newsletter.length,
         faqItems: faq.length,
+        submissionsTotal: submissions.length,
+        submissionsPending: submissions.filter((s: { status: string }) => s.status === "pending").length,
       });
     });
   }, []);
@@ -79,6 +84,14 @@ export default function AdminDashboard() {
       color: "bg-teal-500",
       icon: "❓",
     },
+    {
+      label: "상담 신청",
+      value: stats?.submissionsTotal,
+      sub: stats?.submissionsPending ? `미확인 ${stats.submissionsPending}건` : "전체 접수",
+      href: "/admin/submissions",
+      color: "bg-rose-500",
+      icon: "📋",
+    },
   ];
 
   return (
@@ -116,6 +129,8 @@ export default function AdminDashboard() {
         <h2 className="font-semibold text-gray-700 mb-4">빠른 이동</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-3">
           {[
+            { href: "/admin/branding", label: "사이트 정보 수정" },
+            { href: "/admin/submissions", label: "상담 신청서 확인" },
             { href: "/admin/menu", label: "메뉴 추가/수정/삭제" },
             { href: "/admin/gallery", label: "갤러리 사진 관리" },
             { href: "/admin/slider", label: "메인 슬라이더 관리" },

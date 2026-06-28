@@ -1,6 +1,7 @@
 import type {
   NavItem, GalleryItem, Slide,
   WeMeetProgram, MiMeetProgram, NewsletterPost, FaqItem,
+  SiteBranding, ConsultationSubmission, CallCenterInfo,
 } from "./types";
 
 // ── 로컬 JSON 폴백 (Firebase 미설정 시 사용) ──────────────────────────────
@@ -265,5 +266,112 @@ export async function getFaq(): Promise<FaqItem[]> {
 export async function setFaq(items: FaqItem[]): Promise<void> {
   if (isFirebaseConfigured()) {
     await firestoreSet("faq", { items });
+  }
+}
+
+// ── 사이트 브랜딩 ─────────────────────────────────────────────────────────
+
+export const defaultBranding: SiteBranding = {
+  topBarName: { ko: "WE MEET 다문화 행복센터", en: "WE MEET Multicultural Happiness Center" },
+  logoAbbr: "WM",
+  siteName: { ko: "WE MEET", en: "WE MEET" },
+  siteSubtitle: { ko: "다문화 행복센터", en: "Multicultural Happiness Center" },
+};
+
+export async function getBranding(): Promise<SiteBranding> {
+  if (isFirebaseConfigured()) {
+    const data = await firestoreGet<SiteBranding>("branding");
+    return data ?? defaultBranding;
+  }
+  return readLocalJSON<SiteBranding>("branding.json") ?? defaultBranding;
+}
+
+export async function setBranding(branding: SiteBranding): Promise<void> {
+  if (isFirebaseConfigured()) {
+    await firestoreSet("branding", branding);
+  } else {
+    writeLocalJSON("branding.json", branding);
+  }
+}
+
+// ── 상담 신청서 ───────────────────────────────────────────────────────────
+
+export async function addSubmission(
+  sub: Omit<ConsultationSubmission, "id">
+): Promise<ConsultationSubmission> {
+  if (isFirebaseConfigured()) {
+    const { getDb } = await import("./firebase-admin");
+    const docRef = await getDb().collection("submissions").add(sub);
+    return { id: docRef.id, ...sub };
+  }
+  const existing = readLocalJSON<ConsultationSubmission[]>("submissions.json") ?? [];
+  const newSub: ConsultationSubmission = { id: `s_${Date.now()}`, ...sub };
+  writeLocalJSON("submissions.json", [newSub, ...existing]);
+  return newSub;
+}
+
+export async function getSubmissions(): Promise<ConsultationSubmission[]> {
+  if (isFirebaseConfigured()) {
+    const { getDb } = await import("./firebase-admin");
+    const snapshot = await getDb()
+      .collection("submissions")
+      .orderBy("submittedAt", "desc")
+      .get();
+    return snapshot.docs.map(
+      (doc) => ({ id: doc.id, ...doc.data() } as ConsultationSubmission)
+    );
+  }
+  return readLocalJSON<ConsultationSubmission[]>("submissions.json") ?? [];
+}
+
+export async function updateSubmissionStatus(
+  id: string,
+  status: ConsultationSubmission["status"]
+): Promise<void> {
+  if (isFirebaseConfigured()) {
+    const { getDb } = await import("./firebase-admin");
+    await getDb().collection("submissions").doc(id).update({ status });
+  } else {
+    const existing = readLocalJSON<ConsultationSubmission[]>("submissions.json") ?? [];
+    writeLocalJSON(
+      "submissions.json",
+      existing.map((s) => (s.id === id ? { ...s, status } : s))
+    );
+  }
+}
+
+// ── 위밋행복콜센터 ────────────────────────────────────────────────────────
+
+export const defaultCallCenter: CallCenterInfo = {
+  email: "syjy22kr@naver.com",
+  kakaoName: { ko: "위밋다문화행복센터", en: "WE MEET Center" },
+  kakaoUrl: "http://pf.kakao.com/_Hcktn",
+  hours: [
+    { id: "h1", days: { ko: "월요일 ~ 금요일", en: "Monday – Friday" }, time: "09:00 – 21:00", closed: false },
+    { id: "h2", days: { ko: "일요일", en: "Sunday" }, time: "09:00 – 21:00", closed: false },
+    { id: "h3", days: { ko: "토요일 · 공휴일", en: "Saturday & Holidays" }, time: "휴무", closed: true },
+  ],
+  areas: [
+    { id: "a1", ko: "비자 및 체류 관련", en: "Visa and Residence" },
+    { id: "a2", ko: "생활 및 주거 문제", en: "Daily Life and Housing" },
+    { id: "a3", ko: "취업 및 노동권 보호", en: "Employment and Labor Rights" },
+    { id: "a4", ko: "교육 및 자녀 양육", en: "Education and Child Rearing" },
+    { id: "a5", ko: "심리·정서 상담", en: "Psychological and Emotional Counseling" },
+  ],
+};
+
+export async function getCallCenter(): Promise<CallCenterInfo> {
+  if (isFirebaseConfigured()) {
+    const data = await firestoreGet<CallCenterInfo>("callcenter");
+    return data ?? defaultCallCenter;
+  }
+  return readLocalJSON<CallCenterInfo>("callcenter.json") ?? defaultCallCenter;
+}
+
+export async function setCallCenter(info: CallCenterInfo): Promise<void> {
+  if (isFirebaseConfigured()) {
+    await firestoreSet("callcenter", info);
+  } else {
+    writeLocalJSON("callcenter.json", info);
   }
 }

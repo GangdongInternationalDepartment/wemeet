@@ -5,9 +5,12 @@ import { usePathname, useRouter } from "next/navigation";
 
 const navLinks = [
   { href: "/admin/dashboard", label: "대시보드", icon: "⊞", group: null },
-  { href: "/admin/menu", label: "메뉴 관리", icon: "≡", group: "사이트 설정" },
+  { href: "/admin/branding", label: "사이트 정보", icon: "🏷", group: "사이트 설정" },
+  { href: "/admin/menu", label: "메뉴 관리", icon: "≡", group: null },
   { href: "/admin/gallery", label: "갤러리 관리", icon: "⊟", group: null },
   { href: "/admin/slider", label: "슬라이더 관리", icon: "▷", group: null },
+  { href: "/admin/submissions", label: "상담 신청서", icon: "📋", group: "운영" },
+  { href: "/admin/callcenter", label: "콜센터 정보", icon: "📞", group: null },
   { href: "/admin/programs/wemeet", label: "WE MEET 프로그램", icon: "☀", group: "페이지 콘텐츠" },
   { href: "/admin/programs/mimeet", label: "MI MEET 프로그램", icon: "✏", group: null },
   { href: "/admin/newsletter", label: "알림톡톡", icon: "📢", group: null },

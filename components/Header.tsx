@@ -3,9 +3,22 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
-import type { NavItem } from "@/lib/types";
+import type { NavItem, SiteBranding } from "@/lib/types";
 
-export default function Header({ navItems }: { navItems: NavItem[] }) {
+const defaultBranding: SiteBranding = {
+  topBarName: { ko: "WE MEET 다문화 행복센터", en: "WE MEET Multicultural Happiness Center" },
+  logoAbbr: "WM",
+  siteName: { ko: "WE MEET", en: "WE MEET" },
+  siteSubtitle: { ko: "다문화 행복센터", en: "Multicultural Happiness Center" },
+};
+
+export default function Header({
+  navItems,
+  branding = defaultBranding,
+}: {
+  navItems: NavItem[];
+  branding?: SiteBranding;
+}) {
   const { lang, setLang, t } = useLang();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<number | null>(null);
@@ -15,7 +28,9 @@ export default function Header({ navItems }: { navItems: NavItem[] }) {
       {/* Top bar */}
       <div className="bg-[#1a6db1] text-white text-sm py-1.5">
         <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
-          <span className="font-semibold tracking-wide">WE MEET 다문화 행복센터</span>
+          <span className="font-semibold tracking-wide">
+            {t(branding.topBarName.ko, branding.topBarName.en)}
+          </span>
           <div className="flex items-center gap-3">
             <a
               href="http://pf.kakao.com/_Hcktn"
@@ -48,11 +63,13 @@ export default function Header({ navItems }: { navItems: NavItem[] }) {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-9 h-9 bg-[#1a6db1] rounded-full flex items-center justify-center text-white font-bold text-sm">
-              WM
+              {branding.logoAbbr}
             </div>
             <span className="text-[#1a6db1] font-bold text-lg leading-tight">
-              WE MEET<br />
-              <span className="text-xs font-normal text-gray-500">다문화 행복센터</span>
+              {t(branding.siteName.ko, branding.siteName.en)}<br />
+              <span className="text-xs font-normal text-gray-500">
+                {t(branding.siteSubtitle.ko, branding.siteSubtitle.en)}
+              </span>
             </span>
           </Link>
 

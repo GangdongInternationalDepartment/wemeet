@@ -4,15 +4,55 @@ import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
 
+const FIELDS = [
+  { id: "name",        name: "name",        label: { ko: "이름",     en: "Name" },          type: "text", required: true },
+  { id: "nationality", name: "nationality", label: { ko: "국적",     en: "Nationality" },    type: "text", required: true },
+  { id: "dob",         name: "dob",         label: { ko: "생년월일", en: "Date of Birth" },  type: "date", required: false },
+  { id: "phone",       name: "phone",       label: { ko: "전화번호", en: "Phone Number" },   type: "tel",  required: true },
+  { id: "email",       name: "email",       label: { ko: "이메일",   en: "Email" },          type: "email",required: false },
+  { id: "visitDate",   name: "visitDate",   label: { ko: "방문날짜", en: "Visit Date" },     type: "date", required: false },
+] as const;
+
 export default function OnlineConsultationPage() {
   const { t } = useLang();
   const [agreed, setAgreed] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!agreed) return;
-    setSubmitted(true);
+
+    const fd = new FormData(e.currentTarget);
+    const body = {
+      name:        fd.get("name") as string,
+      nationality: fd.get("nationality") as string,
+      dob:         fd.get("dob") as string,
+      phone:       fd.get("phone") as string,
+      email:       fd.get("email") as string,
+      visitDate:   fd.get("visitDate") as string,
+      inquiry:     fd.get("inquiry") as string,
+    };
+
+    setSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch("/api/consultation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) {
+        const d = await res.json();
+        throw new Error(d.error ?? "제출 실패");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "오류가 발생했습니다.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -37,22 +77,16 @@ export default function OnlineConsultationPage() {
               {t("상담 신청서", "Consultation Application Form")}
             </h2>
 
-            {[
-              { id: "name", label: { ko: "이름", en: "Name" }, type: "text", required: true },
-              { id: "nationality", label: { ko: "국적", en: "Nationality" }, type: "text", required: true },
-              { id: "dob", label: { ko: "생년월일", en: "Date of Birth" }, type: "date", required: false },
-              { id: "phone", label: { ko: "전화번호", en: "Phone Number" }, type: "tel", required: true },
-              { id: "email", label: { ko: "이메일", en: "Email" }, type: "email", required: false },
-              { id: "visitDate", label: { ko: "방문날짜", en: "Visit Date" }, type: "date", required: false },
-            ].map((field) => (
+            {FIELDS.map((field) => (
               <div key={field.id}>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label htmlFor={field.id} className="block text-sm font-medium text-gray-700 mb-1.5">
                   {t(field.label.ko, field.label.en)}
                   {field.required && <span className="text-red-500 ml-1">*</span>}
                 </label>
                 <input
                   type={field.type}
                   id={field.id}
+                  name={field.name}
                   required={field.required}
                   className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#1a6db1] transition-colors"
                 />
@@ -60,17 +94,18 @@ export default function OnlineConsultationPage() {
             ))}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              <label htmlFor="inquiry" className="block text-sm font-medium text-gray-700 mb-1.5">
                 {t("문의사항", "Inquiry Details")}
               </label>
               <textarea
+                id="inquiry"
+                name="inquiry"
                 rows={4}
                 className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#1a6db1] transition-colors resize-none"
                 placeholder={t("상담 내용을 자세히 작성해 주세요.", "Please describe your consultation in detail.")}
               />
             </div>
 
-            {/* 개인정보 동의 */}
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-xs text-gray-600 max-h-40 overflow-y-auto leading-relaxed">
               <p className="font-semibold mb-2">{t("[개인정보 수집·이용 동의]", "[Personal Information Collection & Use Agreement]")}</p>
               <p>{t(
@@ -91,12 +126,14 @@ export default function OnlineConsultationPage() {
               </span>
             </label>
 
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+
             <button
               type="submit"
-              disabled={!agreed}
+              disabled={!agreed || submitting}
               className="w-full bg-[#1a6db1] text-white py-3 rounded-lg font-semibold hover:bg-[#145591] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              {t("신청하기", "Submit")}
+              {submitting ? t("제출 중...", "Submitting...") : t("신청하기", "Submit")}
             </button>
           </form>
         )}

@@ -64,7 +64,7 @@ export default function GalleryPage() {
                   alt={t(item.title.ko, item.title.en)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all" />
               </div>
               <div className="p-3">
                 <span

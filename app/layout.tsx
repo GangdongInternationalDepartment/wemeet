@@ -3,7 +3,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getNavigation } from "@/lib/data";
+import { getNavigation, getBranding } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +17,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const navItems = await getNavigation();
+  const [navItems, branding] = await Promise.all([getNavigation(), getBranding()]);
 
   return (
     <html lang="ko" className="h-full">
@@ -29,7 +29,7 @@ export default async function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
-          <Header navItems={navItems} />
+          <Header navItems={navItems} branding={branding} />
           <main className="flex-1">{children}</main>
           <Footer />
         </LanguageProvider>
