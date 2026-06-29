@@ -112,7 +112,7 @@ export default function AdminBrandingPage() {
       <div className="space-y-6">
         {/* 상단 바 이름 */}
         <section className="bg-white rounded-xl border border-gray-200 p-5">
-          <h2 className="font-semibold text-gray-700 mb-4">상단 파란 바 텍스트</h2>
+          <h2 className="font-semibold text-gray-700 mb-4">상단 헤더 바 텍스트</h2>
           <div className="grid grid-cols-2 gap-4">
             <Field
               label="한국어"
