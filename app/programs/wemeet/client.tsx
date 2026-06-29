@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
@@ -17,9 +17,9 @@ export default function WeMeetProgramClient({ program }: { program: WeMeetProgra
       />
       <div className="max-w-4xl mx-auto px-4 py-14">
         {/* 히어로 배너 */}
-        <div className="bg-[#e8f2fb] rounded-2xl p-8 mb-10 text-center">
+        <div className="bg-[#FFF3EC] rounded-2xl p-8 mb-10 text-center">
           <p className="text-4xl mb-3">{program.hero.emoji}</p>
-          <h2 className="text-xl font-bold text-[#1a6db1] mb-2">
+          <h2 className="text-xl font-bold text-[#E8541A] mb-2">
             {t(program.hero.title.ko, program.hero.title.en)}
           </h2>
           <p className="text-gray-700">
@@ -31,7 +31,7 @@ export default function WeMeetProgramClient({ program }: { program: WeMeetProgra
         <div className="bg-white border border-gray-100 rounded-xl p-6 mb-10 flex flex-col sm:flex-row gap-6 items-center">
           <div className="text-center">
             <p className="text-sm text-gray-500 mb-1">{t("운영일", "Day")}</p>
-            <p className="text-2xl font-bold text-[#1a6db1]">{t(program.info.day.ko, program.info.day.en)}</p>
+            <p className="text-2xl font-bold text-[#E8541A]">{t(program.info.day.ko, program.info.day.en)}</p>
           </div>
           <div className="w-px h-12 bg-gray-200 hidden sm:block" />
           <div className="text-center">
@@ -49,7 +49,7 @@ export default function WeMeetProgramClient({ program }: { program: WeMeetProgra
         <h3 className="text-xl font-bold text-gray-800 mb-6">{t("주요 활동", "Key Activities")}</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
           {program.activities.map((act) => (
-            <div key={act.id} className="bg-white border border-gray-100 rounded-xl p-5 hover:border-[#1a6db1] transition-colors">
+            <div key={act.id} className="bg-white border border-gray-100 rounded-xl p-5 hover:border-[#E8541A] transition-colors">
               <div className="text-3xl mb-3">{act.icon}</div>
               <h4 className="font-bold text-gray-800 mb-1">{t(act.ko, act.en)}</h4>
               <p className="text-gray-500 text-sm">{t(act.desc.ko, act.desc.en)}</p>
@@ -81,7 +81,7 @@ export default function WeMeetProgramClient({ program }: { program: WeMeetProgra
         <div className="text-center">
           <Link
             href="/consultation/online"
-            className="bg-[#1a6db1] text-white px-8 py-3 rounded-full font-bold hover:bg-[#145591] transition-colors inline-block"
+            className="bg-[#E8541A] text-white px-8 py-3 rounded-full font-bold hover:bg-[#C4420E] transition-colors inline-block"
           >
             {t("프로그램 참여 신청", "Apply to Join")}
           </Link>

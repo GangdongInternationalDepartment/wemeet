@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
@@ -8,8 +8,8 @@ const sections = [
   {
     title: { ko: "외국인등록", en: "Foreigner Registration" },
     icon: "📋",
-    color: "border-blue-200 bg-blue-50",
-    accent: "text-blue-700",
+    color: "border-orange-200 bg-orange-50",
+    accent: "text-orange-700",
     steps: {
       ko: [
         "입국 후 90일 이내에 관할 출입국·외국인청에 방문하여 외국인등록을 해야 합니다.",
@@ -130,8 +130,8 @@ export default function LivingPage() {
       />
       <div className="max-w-4xl mx-auto px-4 py-14">
         {/* 빠른 외부 링크 */}
-        <div className="bg-[#e8f2fb] rounded-xl p-5 mb-10">
-          <p className="text-[#1a6db1] font-semibold text-sm mb-3">{t("주요 정부 사이트 바로가기", "Key Government Websites")}</p>
+        <div className="bg-[#FFF3EC] rounded-xl p-5 mb-10">
+          <p className="text-[#E8541A] font-semibold text-sm mb-3">{t("주요 정부 사이트 바로가기", "Key Government Websites")}</p>
           <div className="flex flex-wrap gap-3">
             {[
               { ko: "하이코리아", en: "HiKorea", url: "https://www.hikorea.go.kr" },
@@ -144,7 +144,7 @@ export default function LivingPage() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-[#1a6db1] border border-[#1a6db1] px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[#1a6db1] hover:text-white transition-colors"
+                className="bg-white text-[#E8541A] border border-[#E8541A] px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[#E8541A] hover:text-white transition-colors"
               >
                 {t(link.ko, link.en)} ↗
               </a>
@@ -177,7 +177,7 @@ export default function LivingPage() {
                   <ol className="space-y-3 mt-4 mb-5">
                     {(lang === "ko" ? sec.steps.ko : sec.steps.en).map((step, j) => (
                       <li key={j} className="flex items-start gap-3 text-gray-700 text-sm">
-                        <span className="w-6 h-6 bg-[#1a6db1] text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                        <span className="w-6 h-6 bg-[#E8541A] text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
                           {j + 1}
                         </span>
                         {step}
@@ -193,7 +193,7 @@ export default function LivingPage() {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[#1a6db1] text-xs font-medium hover:underline"
+                          className="inline-flex items-center gap-1 text-[#E8541A] text-xs font-medium hover:underline"
                         >
                           {t(link.ko, link.en)} ↗
                         </a>
@@ -207,11 +207,11 @@ export default function LivingPage() {
         </div>
 
         {/* 상담 CTA */}
-        <div className="mt-10 bg-[#1a6db1] text-white rounded-xl p-6 text-center">
+        <div className="mt-10 bg-[#E8541A] text-white rounded-xl p-6 text-center">
           <p className="font-semibold mb-2">
             {t("직접 도움이 필요하신가요?", "Need personal assistance?")}
           </p>
-          <p className="text-blue-100 text-sm mb-4">
+          <p className="text-orange-100 text-sm mb-4">
             {t("위밋 센터의 전문 상담사가 한국 정착을 도와드립니다.", "WE MEET's professional counselors can help you settle in Korea.")}
           </p>
           <a

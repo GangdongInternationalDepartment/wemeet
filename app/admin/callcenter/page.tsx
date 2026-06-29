@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import type { CallCenterInfo, CallCenterHour, CallCenterArea } from "@/lib/types";
@@ -101,7 +101,7 @@ export default function AdminCallCenterPage() {
           <button
             onClick={save}
             disabled={saving}
-            className="px-5 py-2.5 bg-[#1a6db1] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors disabled:opacity-60"
+            className="px-5 py-2.5 bg-[#E8541A] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors disabled:opacity-60"
           >
             저장
           </button>
@@ -116,7 +116,7 @@ export default function AdminCallCenterPage() {
             type="email"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             placeholder="syjy22kr@naver.com"
           />
         </section>
@@ -130,7 +130,7 @@ export default function AdminCallCenterPage() {
               <input
                 value={form.kakaoUrl}
                 onChange={(e) => setForm({ ...form, kakaoUrl: e.target.value })}
-                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                 placeholder="http://pf.kakao.com/_Hcktn"
               />
             </div>
@@ -140,7 +140,7 @@ export default function AdminCallCenterPage() {
                 <input
                   value={form.kakaoName.ko}
                   onChange={(e) => setForm({ ...form, kakaoName: { ...form.kakaoName, ko: e.target.value } })}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                   placeholder="위밋다문화행복센터"
                 />
               </div>
@@ -149,7 +149,7 @@ export default function AdminCallCenterPage() {
                 <input
                   value={form.kakaoName.en}
                   onChange={(e) => setForm({ ...form, kakaoName: { ...form.kakaoName, en: e.target.value } })}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                   placeholder="WE MEET Center"
                 />
               </div>
@@ -175,14 +175,14 @@ export default function AdminCallCenterPage() {
                   value={h.days.ko}
                   onChange={(e) => updateHour(h.id, { days: { ...h.days, ko: e.target.value } })}
                   placeholder="요일 (한국어)"
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                 />
                 <input
                   value={h.closed ? "휴무" : h.time}
                   onChange={(e) => updateHour(h.id, { time: e.target.value, closed: false })}
                   placeholder="09:00 – 21:00"
                   disabled={h.closed}
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1] disabled:bg-gray-50 disabled:text-gray-400"
+                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A] disabled:bg-gray-50 disabled:text-gray-400"
                 />
                 <label className="flex items-center gap-1.5 cursor-pointer whitespace-nowrap text-sm text-gray-600">
                   <input
@@ -211,7 +211,7 @@ export default function AdminCallCenterPage() {
                   value={h.days.en}
                   onChange={(e) => updateHour(h.id, { days: { ...h.days, en: e.target.value } })}
                   placeholder="영어 요일명 (예: Monday – Friday)"
-                  className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                  className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                 />
               </div>
             ))}
@@ -236,13 +236,13 @@ export default function AdminCallCenterPage() {
                   value={a.ko}
                   onChange={(e) => updateArea(a.id, { ko: e.target.value })}
                   placeholder="한국어"
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                 />
                 <input
                   value={a.en}
                   onChange={(e) => updateArea(a.id, { en: e.target.value })}
                   placeholder="English"
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                 />
                 <button
                   onClick={() => removeArea(a.id)}

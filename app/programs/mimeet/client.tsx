@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
@@ -18,12 +18,12 @@ export default function MiMeetProgramClient({ program }: { program: MiMeetProgra
       <div className="max-w-4xl mx-auto px-4 py-14">
         {/* 운영 정보 */}
         <div className="bg-white border border-gray-100 rounded-xl p-6 mb-10">
-          <h3 className="font-bold text-[#1a6db1] text-lg mb-4">{t("프로그램 정보", "Program Info")}</h3>
+          <h3 className="font-bold text-[#E8541A] text-lg mb-4">{t("프로그램 정보", "Program Info")}</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             {program.info.map((item) => (
-              <div key={item.id} className="bg-[#e8f2fb] rounded-lg p-4">
+              <div key={item.id} className="bg-[#FFF3EC] rounded-lg p-4">
                 <p className="text-sm text-gray-500 mb-1">{t(item.label.ko, item.label.en)}</p>
-                <p className="font-bold text-[#1a6db1]">{t(item.value.ko, item.value.en)}</p>
+                <p className="font-bold text-[#E8541A]">{t(item.value.ko, item.value.en)}</p>
               </div>
             ))}
           </div>
@@ -33,7 +33,7 @@ export default function MiMeetProgramClient({ program }: { program: MiMeetProgra
         <h3 className="text-xl font-bold text-gray-800 mb-6">{t("수업 내용", "Curriculum")}</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
           {program.subjects.map((sub) => (
-            <div key={sub.id} className="bg-white border border-gray-100 rounded-xl p-6 hover:border-[#1a6db1] transition-colors">
+            <div key={sub.id} className="bg-white border border-gray-100 rounded-xl p-6 hover:border-[#E8541A] transition-colors">
               <div className="text-3xl mb-3">{sub.icon}</div>
               <h4 className="font-bold text-gray-800 mb-2">{t(sub.ko, sub.en)}</h4>
               <p className="text-gray-500 text-sm">{t(sub.desc.ko, sub.desc.en)}</p>
@@ -63,9 +63,9 @@ export default function MiMeetProgramClient({ program }: { program: MiMeetProgra
         )}
 
         {/* CTA */}
-        <div className="bg-[#1a6db1] text-white rounded-xl p-8 text-center">
+        <div className="bg-[#E8541A] text-white rounded-xl p-8 text-center">
           <h3 className="text-xl font-bold mb-2">{t(program.cta.title.ko, program.cta.title.en)}</h3>
-          <p className="text-blue-100 mb-6">{t(program.cta.desc.ko, program.cta.desc.en)}</p>
+          <p className="text-orange-100 mb-6">{t(program.cta.desc.ko, program.cta.desc.en)}</p>
           <Link
             href="/consultation/online"
             className="bg-yellow-400 text-gray-900 px-6 py-2.5 rounded-full font-bold hover:bg-yellow-300 transition-colors inline-block"

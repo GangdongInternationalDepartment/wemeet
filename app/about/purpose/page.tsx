@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
@@ -37,8 +37,8 @@ export default function PurposePage() {
         breadcrumb={[t("홈", "Home"), t("위밋 소개", "About Us"), t("설립의도", "Our Purpose")]}
       />
       <div className="max-w-4xl mx-auto px-4 py-14">
-        <div className="bg-[#e8f2fb] rounded-2xl p-8 mb-12 text-center">
-          <h2 className="text-2xl font-bold text-[#1a6db1] mb-4">
+        <div className="bg-[#FFF3EC] rounded-2xl p-8 mb-12 text-center">
+          <h2 className="text-2xl font-bold text-[#E8541A] mb-4">
             {t("\"우리가 만나다 — WE MEET 다문화 행복\"", "\"Where We Meet — Multicultural Happiness\"")}
           </h2>
           <p className="text-gray-700 leading-relaxed text-lg">
@@ -54,8 +54,8 @@ export default function PurposePage() {
         </h3>
         <div className="space-y-5">
           {purposes.map((item, i) => (
-            <div key={i} className="flex gap-5 bg-white border border-gray-100 rounded-xl p-6 hover:border-[#1a6db1] transition-colors">
-              <div className="w-10 h-10 bg-[#1a6db1] text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+            <div key={i} className="flex gap-5 bg-white border border-gray-100 rounded-xl p-6 hover:border-[#E8541A] transition-colors">
+              <div className="w-10 h-10 bg-[#E8541A] text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
                 {i + 1}
               </div>
               <div>

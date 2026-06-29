@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -88,7 +88,7 @@ export default function Home() {
       <HeroSlider />
 
       {/* 5대 설립의도 배너 */}
-      <section className="bg-[#1a6db1] py-4">
+      <section className="bg-[#E8541A] py-4">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-center text-sm">
             {purposes.map((item, i) => (
@@ -107,7 +107,7 @@ export default function Home() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[#1a6db1] font-semibold text-sm uppercase tracking-wider mb-2">Programs</p>
+            <p className="text-[#E8541A] font-semibold text-sm uppercase tracking-wider mb-2">Programs</p>
             <h2 className="text-3xl font-bold text-gray-800">{t("위밋 프로그램", "WE MEET Programs")}</h2>
             <p className="text-gray-500 mt-3 max-w-xl mx-auto">
               {t(
@@ -132,17 +132,17 @@ export default function Home() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="bg-[#1a6db1] text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="bg-[#E8541A] text-white text-xs font-semibold px-3 py-1 rounded-full">
                       {t(prog.badge.ko, prog.badge.en)}
                     </span>
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#1a6db1] transition-colors">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#E8541A] transition-colors">
                     {t(prog.title.ko, prog.title.en)}
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{t(prog.desc.ko, prog.desc.en)}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-[#1a6db1] text-sm font-semibold">
+                  <span className="mt-4 inline-flex items-center gap-1 text-[#E8541A] text-sm font-semibold">
                     {t("자세히 보기", "Learn more")}
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -160,12 +160,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="text-[#1a6db1] font-semibold text-sm uppercase tracking-wider mb-1">Gallery</p>
+              <p className="text-[#E8541A] font-semibold text-sm uppercase tracking-wider mb-1">Gallery</p>
               <h2 className="text-3xl font-bold text-gray-800">{t("활동 갤러리", "Activity Gallery")}</h2>
             </div>
             <Link
               href="/news/gallery"
-              className="text-[#1a6db1] text-sm font-semibold hover:underline flex items-center gap-1"
+              className="text-[#E8541A] text-sm font-semibold hover:underline flex items-center gap-1"
             >
               {t("전체 보기", "View All")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,7 +194,7 @@ export default function Home() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[#1a6db1] font-semibold text-sm uppercase tracking-wider mb-2">Settlement Guide</p>
+            <p className="text-[#E8541A] font-semibold text-sm uppercase tracking-wider mb-2">Settlement Guide</p>
             <h2 className="text-3xl font-bold text-gray-800">{t("한국정착정보", "Korea Settlement Guide")}</h2>
             <p className="text-gray-500 mt-3">
               {t("한국 생활에 필요한 다양한 정보를 안내해 드립니다.", "We provide various information needed for life in Korea.")}
@@ -205,14 +205,14 @@ export default function Home() {
               <Link
                 key={i}
                 href={item.href}
-                className="bg-white rounded-2xl p-7 border border-gray-100 hover:border-[#1a6db1] hover:shadow-lg transition-all group"
+                className="bg-white rounded-2xl p-7 border border-gray-100 hover:border-[#E8541A] hover:shadow-lg transition-all group"
               >
                 <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#1a6db1] transition-colors">
+                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#E8541A] transition-colors">
                   {t(item.ko, item.en)}
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{t(item.desc.ko, item.desc.en)}</p>
-                <span className="mt-5 inline-flex items-center gap-1 text-[#1a6db1] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="mt-5 inline-flex items-center gap-1 text-[#E8541A] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                   {t("바로가기", "Go")}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -229,7 +229,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div
             className="rounded-2xl overflow-hidden flex flex-col md:flex-row"
-            style={{ background: "linear-gradient(135deg, #1a6db1 0%, #1557a0 60%, #0d3f7a 100%)" }}
+            style={{ background: "linear-gradient(135deg, #E8541A 0%, #1557a0 60%, #0d3f7a 100%)" }}
           >
             <div className="relative hidden md:block md:w-72 flex-shrink-0">
               <Image
@@ -244,11 +244,11 @@ export default function Home() {
               <div>
                 <p className="text-yellow-400 text-sm font-semibold uppercase tracking-wider mb-2">Center Info</p>
                 <h2 className="text-2xl font-bold mb-3">{t("센터 운영시간", "Center Hours")}</h2>
-                <p className="text-blue-100 font-medium">{t("월~금 / 일  09:00 ~ 21:00", "Mon–Fri & Sun  09:00–21:00")}</p>
-                <p className="text-blue-300 text-sm mt-1">
+                <p className="text-orange-100 font-medium">{t("월~금 / 일  09:00 ~ 21:00", "Mon–Fri & Sun  09:00–21:00")}</p>
+                <p className="text-orange-300 text-sm mt-1">
                   {t("(토요일 및 공휴일 휴무)", "(Closed on Saturdays and public holidays)")}
                 </p>
-                <p className="text-blue-200 text-sm mt-3">
+                <p className="text-orange-200 text-sm mt-3">
                   📞 {t("위밋행복콜센터: 1555-5555", "WE MEET Call Center: 1555-5555")}
                 </p>
               </div>

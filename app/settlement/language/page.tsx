@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
@@ -9,8 +9,8 @@ const sections = [
   {
     title: { ko: "한국어 교육 기관", en: "Korean Language Institutions" },
     icon: "🗣️",
-    color: "border-blue-200 bg-blue-50",
-    accent: "text-blue-700",
+    color: "border-orange-200 bg-orange-50",
+    accent: "text-orange-700",
     items: {
       ko: [
         { label: "사회통합프로그램 (KIIP)", desc: "법무부 운영 — 5단계 한국어·한국사회이해 과정 / 수료 시 귀화·영주권 심사 가점", url: "https://www.kiip.kr" },
@@ -95,8 +95,8 @@ export default function LanguagePage() {
       />
       <div className="max-w-4xl mx-auto px-4 py-14">
         {/* 빠른 외부 링크 */}
-        <div className="bg-[#e8f2fb] rounded-xl p-5 mb-10">
-          <p className="text-[#1a6db1] font-semibold text-sm mb-3">{t("주요 학습 사이트 바로가기", "Key Learning Websites")}</p>
+        <div className="bg-[#FFF3EC] rounded-xl p-5 mb-10">
+          <p className="text-[#E8541A] font-semibold text-sm mb-3">{t("주요 학습 사이트 바로가기", "Key Learning Websites")}</p>
           <div className="flex flex-wrap gap-3">
             {[
               { ko: "KIIP 사회통합프로그램", en: "KIIP Program", url: "https://www.kiip.kr" },
@@ -109,7 +109,7 @@ export default function LanguagePage() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-[#1a6db1] border border-[#1a6db1] px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[#1a6db1] hover:text-white transition-colors"
+                className="bg-white text-[#E8541A] border border-[#E8541A] px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[#E8541A] hover:text-white transition-colors"
               >
                 {t(link.ko, link.en)} ↗
               </a>
@@ -142,13 +142,13 @@ export default function LanguagePage() {
                   <ul className="space-y-4 mt-4">
                     {(lang === "ko" ? sec.items.ko : sec.items.en).map((item, j) => (
                       <li key={j} className="flex items-start gap-3">
-                        <span className="w-1.5 h-1.5 bg-[#1a6db1] rounded-full flex-shrink-0 mt-2" />
+                        <span className="w-1.5 h-1.5 bg-[#E8541A] rounded-full flex-shrink-0 mt-2" />
                         <div>
                           <a
                             href={item.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-semibold text-[#1a6db1] hover:underline text-sm"
+                            className="font-semibold text-[#E8541A] hover:underline text-sm"
                           >
                             {item.label} ↗
                           </a>
@@ -164,11 +164,11 @@ export default function LanguagePage() {
         </div>
 
         {/* MI MEET 프로그램 배너 */}
-        <div className="mt-10 bg-[#1a6db1] text-white rounded-xl p-8 text-center">
+        <div className="mt-10 bg-[#E8541A] text-white rounded-xl p-8 text-center">
           <h3 className="text-xl font-bold mb-2">
             {t("MI MEET 한국어 프로그램에 참여하세요", "Join the MI MEET Korean Language Program")}
           </h3>
-          <p className="text-blue-100 mb-6">
+          <p className="text-orange-100 mb-6">
             {t("화·목 19:30~21:00 — 체계적인 한국어 수업을 무료로 제공합니다.", "Tue & Thu 19:30–21:00 — Free structured Korean language classes.")}
           </p>
           <Link

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useLang } from "@/context/LanguageContext";
@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#1a6db1] rounded-full flex items-center justify-center text-white font-bold text-xs">
+              <div className="w-8 h-8 bg-[#E8541A] rounded-full flex items-center justify-center text-white font-bold text-xs">
                 WM
               </div>
               <span className="text-white font-bold">WE MEET 다문화 행복센터</span>

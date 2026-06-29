@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import type { ConsultationSubmission } from "@/lib/types";
@@ -70,7 +70,7 @@ export default function AdminSubmissionsPage() {
                 onClick={() => setSelected(item)}
                 className={`w-full text-left rounded-xl border p-4 transition-all ${
                   selected?.id === item.id
-                    ? "border-[#1a6db1] bg-[#e8f2fb]"
+                    ? "border-[#E8541A] bg-[#FFF3EC]"
                     : "border-gray-200 bg-white hover:border-gray-300"
                 }`}
               >
@@ -141,7 +141,7 @@ export default function AdminSubmissionsPage() {
               {selected.status === "pending" && (
                 <button
                   onClick={() => markReviewed(selected.id)}
-                  className="mt-5 w-full bg-[#1a6db1] text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-[#1557a0] transition-colors"
+                  className="mt-5 w-full bg-[#E8541A] text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-[#1557a0] transition-colors"
                 >
                   ✓ 확인 완료로 표시
                 </button>

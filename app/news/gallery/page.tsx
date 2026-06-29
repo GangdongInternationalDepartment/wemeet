@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { useLang } from "@/context/LanguageContext";
@@ -6,8 +6,8 @@ import PageHeader from "@/components/PageHeader";
 import type { GalleryItem } from "@/lib/types";
 
 const tagColors: Record<string, string> = {
-  위밋프로그램: "bg-blue-100 text-blue-700",
-  "WE MEET": "bg-blue-100 text-blue-700",
+  위밋프로그램: "bg-orange-100 text-orange-700",
+  "WE MEET": "bg-orange-100 text-orange-700",
   미밋프로그램: "bg-indigo-100 text-indigo-700",
   "MI MEET": "bg-indigo-100 text-indigo-700",
   랜드마크투어: "bg-green-100 text-green-700",
@@ -93,7 +93,7 @@ export default function GalleryPage() {
             href="http://pf.kakao.com/_Hcktn"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 text-[#1a6db1] font-semibold hover:underline"
+            className="ml-2 text-[#E8541A] font-semibold hover:underline"
           >
             {t("카카오톡 채널 →", "KakaoTalk Channel →")}
           </a>

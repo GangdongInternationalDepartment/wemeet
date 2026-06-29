@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
@@ -10,7 +10,7 @@ const events = [
     title: { ko: "WE MEET 한식 쿠킹 클래스", en: "WE MEET Korean Cooking Class" },
     desc: { ko: "함께 한국 음식을 만들어 보는 즐거운 시간!", en: "A fun time making Korean food together!" },
     status: { ko: "예정", en: "Upcoming" },
-    color: "border-blue-300 bg-blue-50",
+    color: "border-orange-300 bg-orange-50",
   },
   {
     date: "2025.06.15",
@@ -47,14 +47,14 @@ export default function EventsPage() {
               <div className="flex items-start justify-between gap-4">
                 <div className="text-center bg-white rounded-lg px-3 py-2 shadow-sm flex-shrink-0 min-w-[70px]">
                   <p className="text-xs text-gray-500">{ev.date.slice(0, 7)}</p>
-                  <p className="text-xl font-bold text-[#1a6db1]">{ev.date.slice(8)}</p>
+                  <p className="text-xl font-bold text-[#E8541A]">{ev.date.slice(8)}</p>
                   <p className="text-xs text-gray-500">{t(ev.day.ko, ev.day.en)}</p>
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <h3 className="font-bold text-gray-800">{t(ev.title.ko, ev.title.en)}</h3>
                     <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                      ev.status.ko === "예정" ? "bg-[#1a6db1] text-white" : "bg-gray-200 text-gray-600"
+                      ev.status.ko === "예정" ? "bg-[#E8541A] text-white" : "bg-gray-200 text-gray-600"
                     }`}>
                       {t(ev.status.ko, ev.status.en)}
                     </span>
@@ -66,15 +66,15 @@ export default function EventsPage() {
           ))}
         </div>
 
-        <div className="mt-10 bg-[#e8f2fb] rounded-xl p-6 text-center text-sm">
-          <p className="text-[#1a6db1] font-semibold mb-1">
+        <div className="mt-10 bg-[#FFF3EC] rounded-xl p-6 text-center text-sm">
+          <p className="text-[#E8541A] font-semibold mb-1">
             {t("이벤트 알림을 받고 싶으신가요?", "Want to receive event notifications?")}
           </p>
           <a
             href="http://pf.kakao.com/_Hcktn"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#1a6db1] font-bold hover:underline"
+            className="text-[#E8541A] font-bold hover:underline"
           >
             {t("카카오톡 채널 구독하기 →", "Subscribe to KakaoTalk Channel →")}
           </a>

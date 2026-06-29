@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import type { FaqItem } from "@/lib/types";
@@ -23,7 +23,7 @@ function FaqModal({
     a: initial.a ?? { ko: "", en: "" },
   });
 
-  const cls = "w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]";
+  const cls = "w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]";
 
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-start justify-center p-4 overflow-y-auto" onClick={onClose}>
@@ -54,7 +54,7 @@ function FaqModal({
         <div className="flex gap-3 mt-6">
           <button
             onClick={() => { if (!form.q.ko || !form.a.ko) return; onSave(form); }}
-            className="flex-1 bg-[#1a6db1] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
+            className="flex-1 bg-[#E8541A] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
           >
             저장
           </button>
@@ -125,7 +125,7 @@ export default function AdminFaqPage() {
           {saving && <span className="text-sm text-gray-400">저장 중...</span>}
           <button
             onClick={() => setEditing({})}
-            className="px-5 py-2.5 bg-[#1a6db1] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
+            className="px-5 py-2.5 bg-[#E8541A] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
           >
             + FAQ 추가
           </button>
@@ -141,7 +141,7 @@ export default function AdminFaqPage() {
         <div className="space-y-3">
           {items.map((item, idx) => (
             <div key={item.id} className="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
-              <div className="w-7 h-7 bg-[#1a6db1] text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+              <div className="w-7 h-7 bg-[#E8541A] text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
                 {idx + 1}
               </div>
               <div className="flex-1 min-w-0">
@@ -152,7 +152,7 @@ export default function AdminFaqPage() {
                 <button disabled={idx === 0} onClick={() => move(item.id, -1)} className="w-7 h-7 text-gray-400 hover:text-gray-700 disabled:opacity-30 text-sm">↑</button>
                 <button disabled={idx === items.length - 1} onClick={() => move(item.id, 1)} className="w-7 h-7 text-gray-400 hover:text-gray-700 disabled:opacity-30 text-sm">↓</button>
                 <button onClick={() => setEditing(item)}
-                  className="px-2.5 py-1 text-xs text-[#1a6db1] border border-[#1a6db1] rounded-lg hover:bg-[#e8f2fb] transition-colors">
+                  className="px-2.5 py-1 text-xs text-[#E8541A] border border-[#E8541A] rounded-lg hover:bg-[#FFF3EC] transition-colors">
                   수정
                 </button>
                 <button onClick={() => handleDelete(item.id)}

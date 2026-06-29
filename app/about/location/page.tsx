@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
@@ -17,21 +17,21 @@ export default function LocationPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <div className="bg-white border border-gray-100 rounded-xl p-6">
-              <h3 className="font-bold text-[#1a6db1] text-lg mb-4">{t("연락처 정보", "Contact Information")}</h3>
+              <h3 className="font-bold text-[#E8541A] text-lg mb-4">{t("연락처 정보", "Contact Information")}</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
-                  <span className="text-[#1a6db1] font-bold w-16 flex-shrink-0">{t("이메일", "Email")}</span>
-                  <a href="mailto:syjy22kr@naver.com" className="hover:text-[#1a6db1] transition-colors">
+                  <span className="text-[#E8541A] font-bold w-16 flex-shrink-0">{t("이메일", "Email")}</span>
+                  <a href="mailto:syjy22kr@naver.com" className="hover:text-[#E8541A] transition-colors">
                     syjy22kr@naver.com
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#1a6db1] font-bold w-16 flex-shrink-0">{t("카카오톡", "KakaoTalk")}</span>
+                  <span className="text-[#E8541A] font-bold w-16 flex-shrink-0">{t("카카오톡", "KakaoTalk")}</span>
                   <a
                     href="http://pf.kakao.com/_Hcktn"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#1a6db1] transition-colors"
+                    className="hover:text-[#E8541A] transition-colors"
                   >
                     {t("위밋다문화행복센터 채널", "WE MEET Center Channel")}
                   </a>
@@ -40,7 +40,7 @@ export default function LocationPage() {
             </div>
 
             <div className="bg-white border border-gray-100 rounded-xl p-6">
-              <h3 className="font-bold text-[#1a6db1] text-lg mb-4">{t("운영시간", "Operating Hours")}</h3>
+              <h3 className="font-bold text-[#E8541A] text-lg mb-4">{t("운영시간", "Operating Hours")}</h3>
               <table className="w-full text-sm text-gray-700">
                 <tbody>
                   <tr className="border-b border-gray-50">
@@ -59,11 +59,11 @@ export default function LocationPage() {
               </table>
             </div>
 
-            <div className="bg-[#e8f2fb] rounded-xl p-6">
-              <p className="text-[#1a6db1] font-semibold mb-2">{t("온라인 상담도 가능합니다", "Online consultation is also available")}</p>
+            <div className="bg-[#FFF3EC] rounded-xl p-6">
+              <p className="text-[#E8541A] font-semibold mb-2">{t("온라인 상담도 가능합니다", "Online consultation is also available")}</p>
               <a
                 href="/consultation/online"
-                className="inline-block bg-[#1a6db1] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#145591] transition-colors"
+                className="inline-block bg-[#E8541A] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#C4420E] transition-colors"
               >
                 {t("상담 신청하기", "Apply Now")}
               </a>

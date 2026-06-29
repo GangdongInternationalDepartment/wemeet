@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
@@ -31,7 +31,7 @@ export default function FaqClient({ items }: { items: FaqItem[] }) {
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 >
                   <div className="flex items-start gap-3">
-                    <span className="text-[#1a6db1] font-bold text-lg flex-shrink-0">Q</span>
+                    <span className="text-[#E8541A] font-bold text-lg flex-shrink-0">Q</span>
                     <span className="font-medium text-gray-800">{t(item.q.ko, item.q.en)}</span>
                   </div>
                   <svg
@@ -52,13 +52,13 @@ export default function FaqClient({ items }: { items: FaqItem[] }) {
           </div>
         )}
 
-        <div className="mt-10 bg-[#e8f2fb] rounded-xl p-6 text-center">
-          <p className="text-[#1a6db1] font-semibold mb-2">
+        <div className="mt-10 bg-[#FFF3EC] rounded-xl p-6 text-center">
+          <p className="text-[#E8541A] font-semibold mb-2">
             {t("원하는 답변을 찾지 못하셨나요?", "Can't find the answer you're looking for?")}
           </p>
           <a
             href="/consultation/online"
-            className="inline-block bg-[#1a6db1] text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#145591] transition-colors"
+            className="inline-block bg-[#E8541A] text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#C4420E] transition-colors"
           >
             {t("직접 상담 신청하기", "Apply for Consultation")}
           </a>

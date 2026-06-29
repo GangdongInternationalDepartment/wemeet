@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import type { SiteBranding } from "@/lib/types";
@@ -28,7 +28,7 @@ function Field({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+        className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
       />
     </div>
   );
@@ -85,7 +85,7 @@ export default function AdminBrandingPage() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="px-5 py-2.5 bg-[#1a6db1] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors disabled:opacity-60"
+            className="px-5 py-2.5 bg-[#E8541A] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors disabled:opacity-60"
           >
             저장
           </button>
@@ -94,14 +94,14 @@ export default function AdminBrandingPage() {
 
       {/* 미리보기 */}
       <div className="mb-8 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-        <div className="bg-[#1a6db1] text-white text-xs px-4 py-2">
+        <div className="bg-[#E8541A] text-white text-xs px-4 py-2">
           <span className="font-semibold">{form.topBarName.ko}</span>
         </div>
         <div className="bg-white px-4 py-3 flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#1a6db1] rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+          <div className="w-8 h-8 bg-[#E8541A] rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
             {form.logoAbbr || "WM"}
           </div>
-          <span className="text-[#1a6db1] font-bold text-sm leading-tight">
+          <span className="text-[#E8541A] font-bold text-sm leading-tight">
             {form.siteName.ko}<br />
             <span className="text-xs font-normal text-gray-500">{form.siteSubtitle.ko}</span>
           </span>

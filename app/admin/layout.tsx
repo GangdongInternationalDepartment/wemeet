@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -31,7 +31,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <div className="fixed inset-0 z-[200] flex flex-col bg-gray-50 overflow-hidden">
       {/* Top bar */}
-      <header className="bg-[#1a6db1] text-white h-14 flex items-center px-5 flex-shrink-0 shadow-md">
+      <header className="bg-[#E8541A] text-white h-14 flex items-center px-5 flex-shrink-0 shadow-md">
         <div className="flex items-center gap-2 flex-1">
           <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center font-bold text-sm">
             WM
@@ -72,7 +72,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   href={href}
                   className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                     pathname === href || pathname.startsWith(href + "/")
-                      ? "bg-[#e8f2fb] text-[#1a6db1]"
+                      ? "bg-[#FFF3EC] text-[#E8541A]"
                       : "text-gray-600 hover:bg-gray-50 hover:text-gray-800"
                   }`}
                 >

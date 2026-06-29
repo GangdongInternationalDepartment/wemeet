@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import type { Slide } from "@/lib/types";
@@ -73,7 +73,7 @@ function SlideModal({
               value={form.src}
               onChange={(e) => setForm({ ...form, src: e.target.value })}
               placeholder="/images/gallery/gallery-01.jpg"
-              className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+              className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             />
             <button
               type="button"
@@ -104,7 +104,7 @@ function SlideModal({
             <input
               value={form.title.ko}
               onChange={(e) => setForm({ ...form, title: { ...form.title, ko: e.target.value } })}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             />
           </div>
           <div>
@@ -112,7 +112,7 @@ function SlideModal({
             <input
               value={form.title.en}
               onChange={(e) => setForm({ ...form, title: { ...form.title, en: e.target.value } })}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             />
           </div>
           <div>
@@ -120,7 +120,7 @@ function SlideModal({
             <input
               value={form.sub.ko}
               onChange={(e) => setForm({ ...form, sub: { ...form.sub, ko: e.target.value } })}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             />
           </div>
           <div>
@@ -128,7 +128,7 @@ function SlideModal({
             <input
               value={form.sub.en}
               onChange={(e) => setForm({ ...form, sub: { ...form.sub, en: e.target.value } })}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             />
           </div>
         </div>
@@ -139,7 +139,7 @@ function SlideModal({
               if (!form.src || !form.title.ko) return;
               onSave(form);
             }}
-            className="flex-1 bg-[#1a6db1] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
+            className="flex-1 bg-[#E8541A] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
           >
             저장
           </button>
@@ -222,7 +222,7 @@ export default function AdminSliderPage() {
           {saved && <span className="text-sm text-emerald-600 font-semibold">✓ 저장됨</span>}
           <button
             onClick={() => setEditing({ ...EMPTY_SLIDE })}
-            className="px-5 py-2.5 bg-[#1a6db1] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
+            className="px-5 py-2.5 bg-[#E8541A] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
           >
             + 슬라이드 추가
           </button>
@@ -278,7 +278,7 @@ export default function AdminSliderPage() {
               </div>
               <button
                 onClick={() => setEditing(slide)}
-                className="px-3 py-1.5 bg-[#e8f2fb] text-[#1a6db1] rounded-lg text-xs font-semibold hover:bg-[#d0e8f7] transition-colors"
+                className="px-3 py-1.5 bg-[#FFF3EC] text-[#E8541A] rounded-lg text-xs font-semibold hover:bg-[#d0e8f7] transition-colors"
               >
                 수정
               </button>

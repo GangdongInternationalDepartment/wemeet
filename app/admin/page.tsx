@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -33,7 +33,7 @@ export default function AdminLoginPage() {
     <div className="fixed inset-0 z-[200] bg-gray-100 flex items-center justify-center">
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-sm">
         <div className="text-center mb-8">
-          <div className="w-14 h-14 bg-[#1a6db1] rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+          <div className="w-14 h-14 bg-[#E8541A] rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
             WM
           </div>
           <h1 className="text-xl font-bold text-gray-800">관리자 로그인</h1>
@@ -49,7 +49,7 @@ export default function AdminLoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1] focus:border-transparent transition"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A] focus:border-transparent transition"
               placeholder="관리자 비밀번호"
               required
               autoFocus
@@ -63,7 +63,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#1a6db1] text-white py-3 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full bg-[#E8541A] text-white py-3 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {loading ? "로그인 중..." : "로그인"}
           </button>

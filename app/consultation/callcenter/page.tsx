@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { useLang } from "@/context/LanguageContext";
@@ -47,8 +47,8 @@ export default function CallCenterPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* 연락처 */}
           <div className="space-y-5">
-            <div className="bg-[#1a6db1] text-white rounded-2xl p-8 text-center">
-              <p className="text-blue-200 text-sm mb-2">{t("대표 이메일", "Main Email")}</p>
+            <div className="bg-[#E8541A] text-white rounded-2xl p-8 text-center">
+              <p className="text-orange-200 text-sm mb-2">{t("대표 이메일", "Main Email")}</p>
               <a
                 href={`mailto:${info.email}`}
                 className="text-xl font-bold hover:text-yellow-300 transition-colors"
@@ -73,7 +73,7 @@ export default function CallCenterPage() {
 
           {/* 운영 안내 */}
           <div className="bg-white border border-gray-100 rounded-xl p-6">
-            <h3 className="font-bold text-[#1a6db1] text-lg mb-5">{t("상담 운영 안내", "Consultation Hours")}</h3>
+            <h3 className="font-bold text-[#E8541A] text-lg mb-5">{t("상담 운영 안내", "Consultation Hours")}</h3>
             <table className="w-full text-sm text-gray-700">
               <tbody>
                 {info.hours.map((h, i) => (
@@ -89,12 +89,12 @@ export default function CallCenterPage() {
               </tbody>
             </table>
 
-            <div className="mt-6 bg-[#e8f2fb] rounded-lg p-4 text-sm text-[#1a6db1]">
+            <div className="mt-6 bg-[#FFF3EC] rounded-lg p-4 text-sm text-[#E8541A]">
               <p className="font-semibold mb-1">{t("상담 분야", "Consultation Areas")}</p>
               <ul className="space-y-1 text-gray-600">
                 {info.areas.map((area) => (
                   <li key={area.id} className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#1a6db1] rounded-full flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 bg-[#E8541A] rounded-full flex-shrink-0" />
                     {t(area.ko, area.en)}
                   </li>
                 ))}

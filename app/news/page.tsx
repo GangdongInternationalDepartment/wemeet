@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useLang } from "@/context/LanguageContext";
@@ -22,10 +22,10 @@ export default function NewsPage() {
       />
       <div className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
         {subpages.map((p, i) => (
-          <Link key={i} href={p.href} className="border rounded-xl p-8 bg-white hover:border-[#1a6db1] hover:shadow-md transition-all group">
-            <h2 className="text-xl font-bold text-gray-800 group-hover:text-[#1a6db1] transition-colors mb-2">{t(p.ko, p.en)}</h2>
+          <Link key={i} href={p.href} className="border rounded-xl p-8 bg-white hover:border-[#E8541A] hover:shadow-md transition-all group">
+            <h2 className="text-xl font-bold text-gray-800 group-hover:text-[#E8541A] transition-colors mb-2">{t(p.ko, p.en)}</h2>
             <p className="text-gray-500 text-sm">{t(p.desc.ko, p.desc.en)}</p>
-            <span className="mt-4 inline-block text-[#1a6db1] text-sm">{t("바로가기 →", "Go →")}</span>
+            <span className="mt-4 inline-block text-[#E8541A] text-sm">{t("바로가기 →", "Go →")}</span>
           </Link>
         ))}
       </div>

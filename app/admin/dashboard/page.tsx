@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -49,7 +49,7 @@ export default function AdminDashboard() {
       value: stats?.navCategories,
       sub: `전체 메뉴 ${stats?.navTotal ?? "—"}개`,
       href: "/admin/menu",
-      color: "bg-blue-500",
+      color: "bg-orange-500",
       icon: "≡",
     },
     {
@@ -108,7 +108,7 @@ export default function AdminDashboard() {
           <Link
             key={card.href}
             href={card.href}
-            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#1a6db1]/30 transition-all group"
+            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#E8541A]/30 transition-all group"
           >
             <div className={`w-11 h-11 ${card.color} text-white rounded-xl flex items-center justify-center text-xl mb-4`}>
               {card.icon}
@@ -118,7 +118,7 @@ export default function AdminDashboard() {
               {card.value ?? "—"}
             </p>
             <p className="text-gray-400 text-xs">{card.sub}</p>
-            <p className="text-[#1a6db1] text-xs font-semibold mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <p className="text-[#E8541A] text-xs font-semibold mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
               관리하기 →
             </p>
           </Link>
@@ -142,7 +142,7 @@ export default function AdminDashboard() {
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-2 px-4 py-3 bg-gray-50 rounded-xl text-sm text-gray-600 hover:bg-[#e8f2fb] hover:text-[#1a6db1] transition-colors font-medium"
+              className="flex items-center gap-2 px-4 py-3 bg-gray-50 rounded-xl text-sm text-gray-600 hover:bg-[#FFF3EC] hover:text-[#E8541A] transition-colors font-medium"
             >
               {label} →
             </Link>

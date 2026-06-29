@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -26,7 +26,7 @@ export default function Header({
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       {/* Top bar */}
-      <div className="bg-[#1a6db1] text-white text-sm py-1.5">
+      <div className="bg-[#E8541A] text-white text-sm py-1.5">
         <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
           <span className="font-semibold tracking-wide">
             {t(branding.topBarName.ko, branding.topBarName.en)}
@@ -62,10 +62,10 @@ export default function Header({
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-[#1a6db1] rounded-full flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-9 h-9 bg-[#E8541A] rounded-full flex items-center justify-center text-white font-bold text-sm">
               {branding.logoAbbr}
             </div>
-            <span className="text-[#1a6db1] font-bold text-lg leading-tight">
+            <span className="text-[#E8541A] font-bold text-lg leading-tight">
               {t(branding.siteName.ko, branding.siteName.en)}<br />
               <span className="text-xs font-normal text-gray-500">
                 {t(branding.siteSubtitle.ko, branding.siteSubtitle.en)}
@@ -84,7 +84,7 @@ export default function Header({
               >
                 <Link
                   href={item.href}
-                  className="px-4 py-5 inline-block text-gray-700 hover:text-[#1a6db1] font-medium text-sm transition-colors"
+                  className="px-4 py-5 inline-block text-gray-700 hover:text-[#E8541A] font-medium text-sm transition-colors"
                 >
                   {t(item.ko, item.en)}
                 </Link>
@@ -94,7 +94,7 @@ export default function Header({
                       <Link
                         key={child.id}
                         href={child.href}
-                        className="block px-5 py-3 text-sm text-gray-600 hover:bg-[#e8f2fb] hover:text-[#1a6db1] transition-colors whitespace-nowrap"
+                        className="block px-5 py-3 text-sm text-gray-600 hover:bg-[#FFF3EC] hover:text-[#E8541A] transition-colors whitespace-nowrap"
                       >
                         {t(child.ko, child.en)}
                       </Link>
@@ -144,7 +144,7 @@ export default function Header({
                     <Link
                       key={child.id}
                       href={child.href}
-                      className="block px-8 py-2.5 text-sm text-gray-600 hover:text-[#1a6db1]"
+                      className="block px-8 py-2.5 text-sm text-gray-600 hover:text-[#E8541A]"
                       onClick={() => setMobileOpen(false)}
                     >
                       {t(child.ko, child.en)}

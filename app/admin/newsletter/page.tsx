@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import type { NewsletterPost } from "@/lib/types";
@@ -33,7 +33,7 @@ function PostModal({
     content: initial.content ?? { ko: "", en: "" },
   });
 
-  const cls = "w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]";
+  const cls = "w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]";
 
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-start justify-center p-4 overflow-y-auto" onClick={onClose}>
@@ -84,7 +84,7 @@ function PostModal({
               if (!form.title.ko || !form.content.ko) return;
               onSave(form);
             }}
-            className="flex-1 bg-[#1a6db1] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
+            className="flex-1 bg-[#E8541A] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
           >
             저장
           </button>
@@ -155,7 +155,7 @@ export default function AdminNewsletterPage() {
           {saving && <span className="text-sm text-gray-400">저장 중...</span>}
           <button
             onClick={() => setEditing({})}
-            className="px-5 py-2.5 bg-[#1a6db1] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
+            className="px-5 py-2.5 bg-[#E8541A] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
           >
             + 공지 추가
           </button>
@@ -173,7 +173,7 @@ export default function AdminNewsletterPage() {
             <div key={post.id} className="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="bg-[#e8f2fb] text-[#1a6db1] text-xs font-bold px-2.5 py-0.5 rounded-full">{post.tag.ko}</span>
+                  <span className="bg-[#FFF3EC] text-[#E8541A] text-xs font-bold px-2.5 py-0.5 rounded-full">{post.tag.ko}</span>
                   <span className="text-gray-400 text-xs">{post.date}</span>
                 </div>
                 <p className="font-semibold text-gray-800 text-sm truncate">{post.title.ko}</p>
@@ -183,7 +183,7 @@ export default function AdminNewsletterPage() {
                 <button disabled={idx === 0} onClick={() => move(post.id, -1)} className="w-7 h-7 text-gray-400 hover:text-gray-700 disabled:opacity-30 text-sm">↑</button>
                 <button disabled={idx === posts.length - 1} onClick={() => move(post.id, 1)} className="w-7 h-7 text-gray-400 hover:text-gray-700 disabled:opacity-30 text-sm">↓</button>
                 <button onClick={() => setEditing(post)}
-                  className="px-2.5 py-1 text-xs text-[#1a6db1] border border-[#1a6db1] rounded-lg hover:bg-[#e8f2fb] transition-colors">
+                  className="px-2.5 py-1 text-xs text-[#E8541A] border border-[#E8541A] rounded-lg hover:bg-[#FFF3EC] transition-colors">
                   수정
                 </button>
                 <button onClick={() => handleDelete(post.id)}

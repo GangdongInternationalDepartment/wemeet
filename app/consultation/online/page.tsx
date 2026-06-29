@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
@@ -88,7 +88,7 @@ export default function OnlineConsultationPage() {
                   id={field.id}
                   name={field.name}
                   required={field.required}
-                  className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#1a6db1] transition-colors"
+                  className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#E8541A] transition-colors"
                 />
               </div>
             ))}
@@ -101,7 +101,7 @@ export default function OnlineConsultationPage() {
                 id="inquiry"
                 name="inquiry"
                 rows={4}
-                className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#1a6db1] transition-colors resize-none"
+                className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#E8541A] transition-colors resize-none"
                 placeholder={t("상담 내용을 자세히 작성해 주세요.", "Please describe your consultation in detail.")}
               />
             </div>
@@ -119,7 +119,7 @@ export default function OnlineConsultationPage() {
                 type="checkbox"
                 checked={agreed}
                 onChange={(e) => setAgreed(e.target.checked)}
-                className="w-4 h-4 rounded border-gray-300 text-[#1a6db1]"
+                className="w-4 h-4 rounded border-gray-300 text-[#E8541A]"
               />
               <span className="text-sm text-gray-700">
                 {t("개인정보 수집·이용에 동의합니다.", "I agree to the collection and use of personal information.")}
@@ -131,7 +131,7 @@ export default function OnlineConsultationPage() {
             <button
               type="submit"
               disabled={!agreed || submitting}
-              className="w-full bg-[#1a6db1] text-white py-3 rounded-lg font-semibold hover:bg-[#145591] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-full bg-[#E8541A] text-white py-3 rounded-lg font-semibold hover:bg-[#C4420E] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {submitting ? t("제출 중...", "Submitting...") : t("신청하기", "Submit")}
             </button>

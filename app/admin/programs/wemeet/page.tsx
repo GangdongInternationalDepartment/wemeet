@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import type { WeMeetProgram, WeMeetActivity, ProgramPhoto } from "@/lib/types";
@@ -22,7 +22,7 @@ function BilingualField({
   onEn: (v: string) => void;
   multiline?: boolean;
 }) {
-  const cls = "flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]";
+  const cls = "flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]";
   return (
     <div>
       <p className="text-xs font-medium text-gray-500 mb-1">{label}</p>
@@ -149,7 +149,7 @@ export default function AdminWeMeetPage() {
         <button
           onClick={() => save(program)}
           disabled={saving}
-          className="px-5 py-2.5 bg-[#1a6db1] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] disabled:opacity-60 transition-colors"
+          className="px-5 py-2.5 bg-[#E8541A] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] disabled:opacity-60 transition-colors"
         >
           {saving ? "저장 중..." : saved ? "✓ 저장됨" : "저장하기"}
         </button>
@@ -163,7 +163,7 @@ export default function AdminWeMeetPage() {
           <input
             value={p.hero.emoji}
             onChange={(e) => setProgram({ ...p, hero: { ...p.hero, emoji: e.target.value } })}
-            className="w-32 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+            className="w-32 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
           />
         </div>
         <BilingualField
@@ -205,7 +205,7 @@ export default function AdminWeMeetPage() {
                 <input
                   value={act.icon}
                   onChange={(e) => updateActivity(act.id, { icon: e.target.value })}
-                  className="w-16 border border-gray-300 rounded-lg px-2 py-1.5 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                  className="w-16 border border-gray-300 rounded-lg px-2 py-1.5 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                   placeholder="🍳"
                 />
               </div>
@@ -232,7 +232,7 @@ export default function AdminWeMeetPage() {
         ))}
         <button
           onClick={() => setProgram({ ...p, activities: [...p.activities, { id: genId(), icon: "⭐", ko: "", en: "", desc: { ko: "", en: "" } }] })}
-          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#1a6db1] hover:text-[#1a6db1] transition-colors"
+          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#E8541A] hover:text-[#E8541A] transition-colors"
         >
           + 활동 추가
         </button>
@@ -253,7 +253,7 @@ export default function AdminWeMeetPage() {
                     value={photo.src}
                     onChange={(e) => updatePhoto(photo.id, { src: e.target.value })}
                     placeholder="/images/..."
-                    className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                    className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                   />
                   <PhotoUploadButton onSrc={(src) => updatePhoto(photo.id, { src })} uploading={uploading} setUploading={setUploading} />
                 </div>
@@ -274,7 +274,7 @@ export default function AdminWeMeetPage() {
         ))}
         <button
           onClick={() => setProgram({ ...p, photos: [...p.photos, { id: genId(), src: "", caption: { ko: "", en: "" } }] })}
-          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#1a6db1] hover:text-[#1a6db1] transition-colors"
+          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#E8541A] hover:text-[#E8541A] transition-colors"
         >
           + 사진 추가
         </button>

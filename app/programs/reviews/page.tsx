@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
@@ -70,8 +70,8 @@ export default function ReviewsPage() {
           ))}
         </div>
 
-        <div className="bg-[#e8f2fb] rounded-xl p-8 text-center">
-          <h3 className="text-lg font-bold text-[#1a6db1] mb-2">
+        <div className="bg-[#FFF3EC] rounded-xl p-8 text-center">
+          <h3 className="text-lg font-bold text-[#E8541A] mb-2">
             {t("나도 참여하고 싶어요!", "I want to join too!")}
           </h3>
           <p className="text-gray-600 text-sm mb-4">
@@ -79,7 +79,7 @@ export default function ReviewsPage() {
           </p>
           <a
             href="/consultation/online"
-            className="inline-block bg-[#1a6db1] text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#145591] transition-colors"
+            className="inline-block bg-[#E8541A] text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#C4420E] transition-colors"
           >
             {t("프로그램 신청하기", "Apply for Program")}
           </a>

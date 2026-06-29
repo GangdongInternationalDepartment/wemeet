@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useLang } from "@/context/LanguageContext";
@@ -26,12 +26,12 @@ export default function AboutPage() {
           <Link
             key={i}
             href={p.href}
-            className="border rounded-xl p-8 bg-white hover:border-[#1a6db1] hover:shadow-md transition-all group"
+            className="border rounded-xl p-8 bg-white hover:border-[#E8541A] hover:shadow-md transition-all group"
           >
-            <h2 className="text-xl font-bold text-gray-800 group-hover:text-[#1a6db1] transition-colors">
+            <h2 className="text-xl font-bold text-gray-800 group-hover:text-[#E8541A] transition-colors">
               {t(p.ko, p.en)}
             </h2>
-            <span className="mt-2 inline-block text-[#1a6db1] text-sm">{t("바로가기 →", "Go →")}</span>
+            <span className="mt-2 inline-block text-[#E8541A] text-sm">{t("바로가기 →", "Go →")}</span>
           </Link>
         ))}
       </div>

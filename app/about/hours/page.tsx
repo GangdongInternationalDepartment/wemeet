@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
@@ -8,7 +8,7 @@ const schedule = [
     day: { ko: "월요일 ~ 금요일", en: "Monday – Friday" },
     time: "09:00 – 21:00",
     note: { ko: "일반 운영", en: "Regular hours" },
-    color: "bg-blue-50 border-blue-200",
+    color: "bg-orange-50 border-orange-200",
   },
   {
     day: { ko: "일요일", en: "Sunday" },
@@ -63,7 +63,7 @@ export default function HoursPage() {
             {schedule.map((s, i) => (
               <div key={i} className={`border rounded-xl p-6 text-center ${s.color}`}>
                 <p className="font-bold text-gray-800 mb-2">{t(s.day.ko, s.day.en)}</p>
-                {s.time && <p className="text-2xl font-bold text-[#1a6db1] mb-1">{s.time}</p>}
+                {s.time && <p className="text-2xl font-bold text-[#E8541A] mb-1">{s.time}</p>}
                 <p className={`text-sm font-medium ${i === 2 ? "text-red-500" : "text-gray-600"}`}>
                   {t(s.note.ko, s.note.en)}
                 </p>
@@ -79,15 +79,15 @@ export default function HoursPage() {
             {programs.map((prog, i) => (
               <div key={i} className="bg-white border border-gray-100 rounded-xl p-6">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
-                  <h3 className="font-bold text-[#1a6db1] text-lg">{t(prog.name.ko, prog.name.en)}</h3>
-                  <span className="bg-[#e8f2fb] text-[#1a6db1] text-sm px-3 py-1 rounded-full font-medium">
+                  <h3 className="font-bold text-[#E8541A] text-lg">{t(prog.name.ko, prog.name.en)}</h3>
+                  <span className="bg-[#FFF3EC] text-[#E8541A] text-sm px-3 py-1 rounded-full font-medium">
                     {t(prog.day.ko, prog.day.en)}
                   </span>
                 </div>
                 <ul className="space-y-1">
                   {prog.items.map((item, j) => (
                     <li key={j} className="flex items-center gap-2 text-gray-700 text-sm">
-                      <span className="w-1.5 h-1.5 bg-[#1a6db1] rounded-full flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 bg-[#E8541A] rounded-full flex-shrink-0" />
                       {t(item.ko, item.en)}
                     </li>
                   ))}
@@ -97,7 +97,7 @@ export default function HoursPage() {
           </div>
         </section>
 
-        <div className="bg-[#e8f2fb] rounded-xl p-5 text-center text-sm text-[#1a6db1]">
+        <div className="bg-[#FFF3EC] rounded-xl p-5 text-center text-sm text-[#E8541A]">
           {t(
             "상시 프로그램 안내는 알림공간 > 알림톡톡을 확인해 주세요.",
             "For ongoing program updates, please check News > Newsletter."

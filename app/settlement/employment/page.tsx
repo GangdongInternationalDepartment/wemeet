@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
@@ -9,8 +9,8 @@ const sections = [
   {
     title: { ko: "자녀 교육 정보", en: "Children's Education" },
     icon: "🏫",
-    color: "border-blue-200 bg-blue-50",
-    accent: "text-blue-700",
+    color: "border-orange-200 bg-orange-50",
+    accent: "text-orange-700",
     items: {
       ko: [
         { label: "초·중·고등학교 입학", desc: "주소지 관할 교육지원청에 문의하면 학교 배정을 받을 수 있습니다. 체류 자격에 관계없이 입학 가능합니다.", url: "https://www.moe.go.kr" },
@@ -101,8 +101,8 @@ export default function EmploymentPage() {
       />
       <div className="max-w-4xl mx-auto px-4 py-14">
         {/* 빠른 외부 링크 */}
-        <div className="bg-[#e8f2fb] rounded-xl p-5 mb-10">
-          <p className="text-[#1a6db1] font-semibold text-sm mb-3">{t("주요 사이트 바로가기", "Key Websites")}</p>
+        <div className="bg-[#FFF3EC] rounded-xl p-5 mb-10">
+          <p className="text-[#E8541A] font-semibold text-sm mb-3">{t("주요 사이트 바로가기", "Key Websites")}</p>
           <div className="flex flex-wrap gap-3">
             {[
               { ko: "워크넷 (구직)", en: "WorkNet (Jobs)", url: "https://www.work.go.kr" },
@@ -115,7 +115,7 @@ export default function EmploymentPage() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-[#1a6db1] border border-[#1a6db1] px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[#1a6db1] hover:text-white transition-colors"
+                className="bg-white text-[#E8541A] border border-[#E8541A] px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[#E8541A] hover:text-white transition-colors"
               >
                 {t(link.ko, link.en)} ↗
               </a>
@@ -148,13 +148,13 @@ export default function EmploymentPage() {
                   <ul className="space-y-4 mt-4">
                     {(lang === "ko" ? sec.items.ko : sec.items.en).map((item, j) => (
                       <li key={j} className="flex items-start gap-3">
-                        <span className="w-1.5 h-1.5 bg-[#1a6db1] rounded-full flex-shrink-0 mt-2" />
+                        <span className="w-1.5 h-1.5 bg-[#E8541A] rounded-full flex-shrink-0 mt-2" />
                         <div>
                           <a
                             href={item.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-semibold text-[#1a6db1] hover:underline text-sm"
+                            className="font-semibold text-[#E8541A] hover:underline text-sm"
                           >
                             {item.label} ↗
                           </a>
@@ -170,8 +170,8 @@ export default function EmploymentPage() {
         </div>
 
         {/* 상담 CTA */}
-        <div className="mt-10 bg-[#e8f2fb] rounded-xl p-6 text-center">
-          <p className="text-[#1a6db1] font-semibold mb-2">
+        <div className="mt-10 bg-[#FFF3EC] rounded-xl p-6 text-center">
+          <p className="text-[#E8541A] font-semibold mb-2">
             {t("취업·교육 관련 전문 상담이 필요하신가요?", "Need professional advice on employment or education?")}
           </p>
           <p className="text-gray-600 text-sm mb-4">
@@ -179,7 +179,7 @@ export default function EmploymentPage() {
           </p>
           <Link
             href="/consultation/online"
-            className="inline-block bg-[#1a6db1] text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#145591] transition-colors"
+            className="inline-block bg-[#E8541A] text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#C4420E] transition-colors"
           >
             {t("상담 신청하기", "Apply for Consultation")}
           </Link>

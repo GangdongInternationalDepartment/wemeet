@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import type { GalleryItem } from "@/lib/types";
@@ -75,7 +75,7 @@ function EmptyModal({
               value={form.src}
               onChange={(e) => setForm({ ...form, src: e.target.value })}
               placeholder="/images/gallery/gallery-01.jpg"
-              className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+              className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             />
             <button
               type="button"
@@ -107,7 +107,7 @@ function EmptyModal({
               <input
                 value={form.title.ko}
                 onChange={(e) => setForm({ ...form, title: { ...form.title, ko: e.target.value } })}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
               />
             </div>
             <div className="flex-1">
@@ -115,7 +115,7 @@ function EmptyModal({
               <input
                 value={form.title.en}
                 onChange={(e) => setForm({ ...form, title: { ...form.title, en: e.target.value } })}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
               />
             </div>
           </div>
@@ -127,7 +127,7 @@ function EmptyModal({
                 value={form.date}
                 onChange={(e) => setForm({ ...form, date: e.target.value })}
                 placeholder="2025.10"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
               />
             </div>
             <div className="flex-1">
@@ -138,7 +138,7 @@ function EmptyModal({
                   const preset = TAG_PRESETS.find((t) => t.ko === e.target.value);
                   if (preset) setForm({ ...form, tag: preset });
                 }}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
               >
                 {TAG_PRESETS.map((t) => (
                   <option key={t.ko} value={t.ko}>
@@ -156,7 +156,7 @@ function EmptyModal({
               if (!form.src || !form.title.ko) return;
               onSave(form);
             }}
-            className="flex-1 bg-[#1a6db1] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
+            className="flex-1 bg-[#E8541A] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
           >
             저장
           </button>
@@ -247,7 +247,7 @@ export default function AdminGalleryPage() {
           {saved && <span className="text-sm text-emerald-600 font-semibold">✓ 저장됨</span>}
           <button
             onClick={() => setEditing({ ...EMPTY_ITEM })}
-            className="px-5 py-2.5 bg-[#1a6db1] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
+            className="px-5 py-2.5 bg-[#E8541A] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] transition-colors"
           >
             + 사진 추가
           </button>
@@ -291,7 +291,7 @@ export default function AdminGalleryPage() {
                 <p className="text-xs font-medium text-gray-700 leading-snug truncate">{item.title.ko}</p>
                 <p className="text-xs text-gray-400 mt-0.5">{item.date}</p>
                 <div className="flex items-center justify-between mt-2">
-                  <span className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full">{item.tag.ko}</span>
+                  <span className="text-xs bg-orange-50 text-orange-600 px-2 py-0.5 rounded-full">{item.tag.ko}</span>
                   <div className="flex gap-1">
                     <button
                       disabled={idx === 0}

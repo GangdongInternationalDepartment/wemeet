@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import type { NavItem, NavChild } from "@/lib/types";
@@ -115,7 +115,7 @@ export default function AdminMenuPage() {
         <button
           onClick={saveAll}
           disabled={saving}
-          className="px-5 py-2.5 bg-[#1a6db1] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] disabled:opacity-60 transition-colors"
+          className="px-5 py-2.5 bg-[#E8541A] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] disabled:opacity-60 transition-colors"
         >
           {saving ? "저장 중..." : saved ? "✓ 저장됨" : "저장하기"}
         </button>
@@ -164,7 +164,7 @@ export default function AdminMenuPage() {
       ) : (
         <button
           onClick={() => setAdding({ type: "category" })}
-          className="mt-4 w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#1a6db1] hover:text-[#1a6db1] transition-colors"
+          className="mt-4 w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#E8541A] hover:text-[#E8541A] transition-colors"
         >
           + 메뉴 카테고리 추가
         </button>
@@ -219,20 +219,20 @@ function CategoryCard({
                   value={draft.ko}
                   onChange={(e) => setDraft({ ...draft, ko: e.target.value })}
                   placeholder="한국어 이름"
-                  className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                  className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                 />
                 <input
                   value={draft.en}
                   onChange={(e) => setDraft({ ...draft, en: e.target.value })}
                   placeholder="English name"
-                  className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                  className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
                 />
               </div>
               <input
                 value={draft.href}
                 onChange={(e) => setDraft({ ...draft, href: e.target.value })}
                 placeholder="URL (예: /about)"
-                className="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+                className="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
               />
               <div className="flex gap-2">
                 <button
@@ -240,7 +240,7 @@ function CategoryCard({
                     onUpdateCategory(item.id, draft);
                     setEditing(null);
                   }}
-                  className="px-3 py-1.5 bg-[#1a6db1] text-white rounded-lg text-xs font-semibold"
+                  className="px-3 py-1.5 bg-[#E8541A] text-white rounded-lg text-xs font-semibold"
                 >
                   적용
                 </button>
@@ -284,7 +284,7 @@ function CategoryCard({
             </button>
             <button
               onClick={() => setEditing({ type: "category", id: item.id })}
-              className="px-2.5 py-1 text-xs text-[#1a6db1] border border-[#1a6db1] rounded-lg hover:bg-[#e8f2fb] transition-colors"
+              className="px-2.5 py-1 text-xs text-[#E8541A] border border-[#E8541A] rounded-lg hover:bg-[#FFF3EC] transition-colors"
             >
               수정
             </button>
@@ -323,7 +323,7 @@ function CategoryCard({
         ) : (
           <button
             onClick={() => setAdding({ type: "child", parentId: item.id })}
-            className="w-full text-left text-xs text-gray-400 hover:text-[#1a6db1] py-1 px-2 rounded hover:bg-gray-50 transition-colors"
+            className="w-full text-left text-xs text-gray-400 hover:text-[#E8541A] py-1 px-2 rounded hover:bg-gray-50 transition-colors"
           >
             + 하위 메뉴 추가
           </button>
@@ -370,19 +370,19 @@ function ChildRow({
               value={draft.ko}
               onChange={(e) => setDraft({ ...draft, ko: e.target.value })}
               placeholder="한국어"
-              className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+              className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             />
             <input
               value={draft.en}
               onChange={(e) => setDraft({ ...draft, en: e.target.value })}
               placeholder="English"
-              className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+              className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             />
             <input
               value={draft.href}
               onChange={(e) => setDraft({ ...draft, href: e.target.value })}
               placeholder="URL"
-              className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+              className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
             />
           </div>
           <div className="flex gap-1">
@@ -391,7 +391,7 @@ function ChildRow({
                 onUpdate(draft);
                 setEditing(null);
               }}
-              className="px-2.5 py-1 bg-[#1a6db1] text-white rounded text-xs font-semibold"
+              className="px-2.5 py-1 bg-[#E8541A] text-white rounded text-xs font-semibold"
             >
               적용
             </button>
@@ -416,7 +416,7 @@ function ChildRow({
             <button disabled={childIdx === totalChildren - 1} onClick={() => onMove(1)} className="w-5 h-5 text-gray-400 hover:text-gray-700 disabled:opacity-30 text-xs">↓</button>
             <button
               onClick={() => setEditing({ type: "child", parentId, id: child.id })}
-              className="px-2 py-0.5 text-xs text-[#1a6db1] border border-[#1a6db1] rounded hover:bg-[#e8f2fb] transition-colors"
+              className="px-2 py-0.5 text-xs text-[#E8541A] border border-[#E8541A] rounded hover:bg-[#FFF3EC] transition-colors"
             >
               수정
             </button>
@@ -442,27 +442,27 @@ function AddCategoryForm({
 }) {
   const [form, setForm] = useState({ ko: "", en: "", href: "" });
   return (
-    <div className="mt-4 bg-white rounded-xl border border-[#1a6db1] p-4 space-y-2">
+    <div className="mt-4 bg-white rounded-xl border border-[#E8541A] p-4 space-y-2">
       <p className="text-sm font-semibold text-gray-700">새 카테고리 추가</p>
       <div className="flex gap-2">
         <input
           value={form.ko}
           onChange={(e) => setForm({ ...form, ko: e.target.value })}
           placeholder="한국어 이름"
-          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
         />
         <input
           value={form.en}
           onChange={(e) => setForm({ ...form, en: e.target.value })}
           placeholder="English name"
-          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
         />
       </div>
       <input
         value={form.href}
         onChange={(e) => setForm({ ...form, href: e.target.value })}
         placeholder="URL (예: /about)"
-        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#1a6db1]"
+        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#E8541A]"
       />
       <div className="flex gap-2">
         <button
@@ -470,7 +470,7 @@ function AddCategoryForm({
             if (!form.ko || !form.href) return;
             onAdd({ id: genId(), ...form, children: [] });
           }}
-          className="px-4 py-2 bg-[#1a6db1] text-white rounded-lg text-sm font-semibold"
+          className="px-4 py-2 bg-[#E8541A] text-white rounded-lg text-sm font-semibold"
         >
           추가
         </button>
@@ -491,25 +491,25 @@ function AddChildForm({
 }) {
   const [form, setForm] = useState({ ko: "", en: "", href: "" });
   return (
-    <div className="mt-1 bg-blue-50 rounded-lg p-3 space-y-2">
+    <div className="mt-1 bg-orange-50 rounded-lg p-3 space-y-2">
       <div className="flex gap-2">
         <input
           value={form.ko}
           onChange={(e) => setForm({ ...form, ko: e.target.value })}
           placeholder="한국어"
-          className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-[#1a6db1] bg-white"
+          className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-[#E8541A] bg-white"
         />
         <input
           value={form.en}
           onChange={(e) => setForm({ ...form, en: e.target.value })}
           placeholder="English"
-          className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-[#1a6db1] bg-white"
+          className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-[#E8541A] bg-white"
         />
         <input
           value={form.href}
           onChange={(e) => setForm({ ...form, href: e.target.value })}
           placeholder="URL"
-          className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1.5 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#1a6db1] bg-white"
+          className="flex-1 border border-gray-300 rounded-lg px-2.5 py-1.5 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#E8541A] bg-white"
         />
       </div>
       <div className="flex gap-2">
@@ -518,7 +518,7 @@ function AddChildForm({
             if (!form.ko || !form.href) return;
             onAdd({ id: genId(), ...form });
           }}
-          className="px-3 py-1.5 bg-[#1a6db1] text-white rounded-lg text-xs font-semibold"
+          className="px-3 py-1.5 bg-[#E8541A] text-white rounded-lg text-xs font-semibold"
         >
           추가
         </button>

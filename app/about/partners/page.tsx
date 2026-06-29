@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
@@ -16,14 +16,14 @@ export default function PartnersPage() {
       <div className="max-w-4xl mx-auto px-4 py-14">
         <div className="bg-white border border-gray-100 rounded-xl p-8">
           <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <div className="w-16 h-16 bg-[#1a6db1] rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+            <div className="w-16 h-16 bg-[#E8541A] rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
               ICM
             </div>
             <div className="flex-1">
               <h2 className="text-xl font-bold text-gray-800 mb-1">
                 I.C.M (Inner Core Mentoring)
               </h2>
-              <p className="text-[#1a6db1] font-medium text-sm mb-4">
+              <p className="text-[#E8541A] font-medium text-sm mb-4">
                 {t("자기 성찰 기반의 깊이 있는 코칭 & 멘토링 기관", "A coaching & mentoring organization based on self-reflection")}
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -42,7 +42,7 @@ export default function PartnersPage() {
                 href="https://www.icmconsulting.co.kr/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#1a6db1] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#145591] transition-colors"
+                className="inline-block bg-[#E8541A] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#C4420E] transition-colors"
               >
                 {t("웹사이트 방문 →", "Visit Website →")}
               </a>

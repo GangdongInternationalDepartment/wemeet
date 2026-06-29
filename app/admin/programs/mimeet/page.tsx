@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import type { MiMeetProgram, MiMeetInfoItem, MiMeetSubject, ProgramPhoto } from "@/lib/types";
@@ -13,7 +13,7 @@ function BilingualField({
   label: string; ko: string; en: string;
   onKo: (v: string) => void; onEn: (v: string) => void; multiline?: boolean;
 }) {
-  const cls = "flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6db1]";
+  const cls = "flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8541A]";
   return (
     <div>
       <p className="text-xs font-medium text-gray-500 mb-1">{label}</p>
@@ -123,7 +123,7 @@ export default function AdminMiMeetPage() {
           <p className="text-gray-400 text-sm mt-1">/programs/mimeet 페이지 콘텐츠를 편집합니다.</p>
         </div>
         <button onClick={() => save(program)} disabled={saving}
-          className="px-5 py-2.5 bg-[#1a6db1] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] disabled:opacity-60 transition-colors">
+          className="px-5 py-2.5 bg-[#E8541A] text-white rounded-lg font-semibold text-sm hover:bg-[#1557a0] disabled:opacity-60 transition-colors">
           {saving ? "저장 중..." : saved ? "✓ 저장됨" : "저장하기"}
         </button>
       </div>
@@ -150,7 +150,7 @@ export default function AdminMiMeetPage() {
         ))}
         <button
           onClick={() => setProgram({ ...p, info: [...p.info, { id: genId(), label: { ko: "", en: "" }, value: { ko: "", en: "" } }] })}
-          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#1a6db1] hover:text-[#1a6db1] transition-colors">
+          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#E8541A] hover:text-[#E8541A] transition-colors">
           + 항목 추가
         </button>
       </section>
@@ -162,7 +162,7 @@ export default function AdminMiMeetPage() {
           <div key={sub.id} className="border border-gray-100 rounded-xl p-4 space-y-3">
             <div className="flex items-center justify-between gap-2">
               <input value={sub.icon} onChange={(e) => updateSubject(sub.id, { icon: e.target.value })}
-                className="w-16 border border-gray-300 rounded-lg px-2 py-1.5 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#1a6db1]" placeholder="📖" />
+                className="w-16 border border-gray-300 rounded-lg px-2 py-1.5 text-sm text-center focus:outline-none focus:ring-2 focus:ring-[#E8541A]" placeholder="📖" />
               <div className="flex gap-1">
                 <button disabled={idx === 0} onClick={() => moveSubject(sub.id, -1)} className="w-7 h-7 text-gray-400 hover:text-gray-700 disabled:opacity-30">↑</button>
                 <button disabled={idx === p.subjects.length - 1} onClick={() => moveSubject(sub.id, 1)} className="w-7 h-7 text-gray-400 hover:text-gray-700 disabled:opacity-30">↓</button>
@@ -178,7 +178,7 @@ export default function AdminMiMeetPage() {
         ))}
         <button
           onClick={() => setProgram({ ...p, subjects: [...p.subjects, { id: genId(), icon: "📖", ko: "", en: "", desc: { ko: "", en: "" } }] })}
-          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#1a6db1] hover:text-[#1a6db1] transition-colors">
+          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#E8541A] hover:text-[#E8541A] transition-colors">
           + 수업 추가
         </button>
       </section>
@@ -193,7 +193,7 @@ export default function AdminMiMeetPage() {
               <div className="flex-1 space-y-2">
                 <div className="flex gap-2">
                   <input value={photo.src} onChange={(e) => updatePhoto(photo.id, { src: e.target.value })}
-                    placeholder="/images/..." className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#1a6db1]" />
+                    placeholder="/images/..." className="flex-1 border border-gray-300 rounded-lg px-3 py-1.5 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-[#E8541A]" />
                   <PhotoUploadButton onSrc={(src) => updatePhoto(photo.id, { src })} uploading={uploading} setUploading={setUploading} />
                 </div>
                 <BilingualField label="캡션" ko={photo.caption.ko} en={photo.caption.en}
@@ -210,7 +210,7 @@ export default function AdminMiMeetPage() {
         ))}
         <button
           onClick={() => setProgram({ ...p, photos: [...p.photos, { id: genId(), src: "", caption: { ko: "", en: "" } }] })}
-          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#1a6db1] hover:text-[#1a6db1] transition-colors">
+          className="w-full border-2 border-dashed border-gray-300 rounded-xl py-3 text-sm text-gray-400 hover:border-[#E8541A] hover:text-[#E8541A] transition-colors">
           + 사진 추가
         </button>
       </section>

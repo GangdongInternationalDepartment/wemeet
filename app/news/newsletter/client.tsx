@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useLang } from "@/context/LanguageContext";
 import PageHeader from "@/components/PageHeader";
@@ -23,9 +23,9 @@ export default function NewsletterClient({ posts }: { posts: NewsletterPost[] })
         ) : (
           <div className="space-y-5">
             {posts.map((post) => (
-              <div key={post.id} className="bg-white border border-gray-100 rounded-xl p-6 hover:border-[#1a6db1] transition-colors">
+              <div key={post.id} className="bg-white border border-gray-100 rounded-xl p-6 hover:border-[#E8541A] transition-colors">
                 <div className="flex items-start gap-3 mb-3">
-                  <span className="bg-[#e8f2fb] text-[#1a6db1] text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0">
+                  <span className="bg-[#FFF3EC] text-[#E8541A] text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0">
                     {t(post.tag.ko, post.tag.en)}
                   </span>
                   <div className="flex-1">
@@ -45,7 +45,7 @@ export default function NewsletterClient({ posts }: { posts: NewsletterPost[] })
             href="http://pf.kakao.com/_Hcktn"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 text-[#1a6db1] font-semibold hover:underline"
+            className="ml-2 text-[#E8541A] font-semibold hover:underline"
           >
             {t("카카오톡 채널 바로가기 →", "KakaoTalk Channel →")}
           </a>
