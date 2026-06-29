@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/admin/slider", label: "슬라이더 관리", icon: "▷", group: null },
   { href: "/admin/submissions", label: "상담 신청서", icon: "📋", group: "운영" },
   { href: "/admin/callcenter", label: "콜센터 정보", icon: "📞", group: null },
+  { href: "/admin/password", label: "비밀번호 변경", icon: "🔑", group: null },
   { href: "/admin/programs/wemeet", label: "WE MEET 프로그램", icon: "☀", group: "페이지 콘텐츠" },
   { href: "/admin/programs/mimeet", label: "MI MEET 프로그램", icon: "✏", group: null },
   { href: "/admin/newsletter", label: "알림톡톡", icon: "📢", group: null },
