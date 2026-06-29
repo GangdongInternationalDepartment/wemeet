@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useLang } from "@/context/LanguageContext";
 import HeroSlider from "@/components/HeroSlider";
+import type { GalleryItem } from "@/lib/types";
 
 const programs = [
   {
@@ -62,14 +64,6 @@ const infoLinks = [
   },
 ];
 
-const galleryPreview = [
-  "/images/gallery/gallery-04.png",
-  "/images/gallery/gallery-06.png",
-  "/images/gallery/gallery-07.png",
-  "/images/gallery/gallery-09.jpg",
-  "/images/gallery/gallery-10.png",
-  "/images/gallery/gallery-11.png",
-];
 
 const purposes = [
   { ko: "다문화가족 안정적 정착", en: "Stable Settlement" },
@@ -79,8 +73,29 @@ const purposes = [
   { ko: "심리·정서적 지원", en: "Psychological Support" },
 ];
 
+const FALLBACK_GALLERY = [
+  "/images/gallery/gallery-01.jpg",
+  "/images/gallery/gallery-09.jpg",
+  "/images/gallery/gallery-03.jpg",
+  "/images/gallery/gallery-02.jpg",
+  "/images/gallery/gallery-11.png",
+  "/images/gallery/gallery-13.png",
+];
+
 export default function Home() {
   const { t } = useLang();
+  const [galleryPreview, setGalleryPreview] = useState<string[]>(FALLBACK_GALLERY);
+
+  useEffect(() => {
+    fetch("/api/data/gallery")
+      .then((r) => r.json())
+      .then((data: GalleryItem[]) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setGalleryPreview(data.slice(0, 6).map((item) => item.src));
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <div>
@@ -174,7 +189,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {galleryPreview.map((src, i) => (
+            {galleryPreview.map((src: string, i: number) => (
               <Link key={i} href="/news/gallery" className="group relative aspect-square overflow-hidden rounded-xl">
                 <Image
                   src={src}
